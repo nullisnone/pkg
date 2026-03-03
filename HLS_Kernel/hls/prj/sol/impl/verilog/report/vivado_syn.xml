@@ -1,0 +1,173 @@
+<profile>
+<RunData>
+  <RUN_TYPE>synth</RUN_TYPE>
+  <VIVADO_VERSION>v.2022.2</VIVADO_VERSION>
+  <ROOT_MODULE_CELL>bd_0_i/hls_inst</ROOT_MODULE_CELL>
+</RunData>
+<TimingReport>
+  <TargetClockPeriod>3.500</TargetClockPeriod>
+  <AchievedClockPeriod>1.782</AchievedClockPeriod>
+  <CLOCK_NAME>ap_clk</CLOCK_NAME>
+  <CP_FINAL>1.782</CP_FINAL>
+  <CP_ROUTE>NA</CP_ROUTE>
+  <CP_SYNTH>1.782</CP_SYNTH>
+  <CP_TARGET>3.500</CP_TARGET>
+  <SLACK_FINAL>1.718</SLACK_FINAL>
+  <SLACK_ROUTE></SLACK_ROUTE>
+  <SLACK_SYNTH>1.718</SLACK_SYNTH>
+  <TIMING_MET>TRUE</TIMING_MET>
+  <TNS_FINAL>0.000</TNS_FINAL>
+  <TNS_ROUTE>NA</TNS_ROUTE>
+  <TNS_SYNTH>0.000</TNS_SYNTH>
+  <WNS_FINAL>1.718</WNS_FINAL>
+  <WNS_ROUTE>NA</WNS_ROUTE>
+  <WNS_SYNTH>1.718</WNS_SYNTH>
+</TimingReport>
+<AreaReport>
+  <Resources>
+    <BRAM>3</BRAM>
+    <CLB>0</CLB>
+    <DSP>0</DSP>
+    <FF>511</FF>
+    <LATCH>0</LATCH>
+    <LUT>396</LUT>
+    <SRL>0</SRL>
+    <URAM>0</URAM>
+  </Resources>
+  <AvailableResources>
+    <BRAM>1968</BRAM>
+    <CLB>0</CLB>
+    <DSP>1968</DSP>
+    <FF>1045440</FF>
+    <LUT>522720</LUT>
+    <URAM>128</URAM>
+  </AvailableResources>
+</AreaReport>
+<RtlModules>
+  <RtlModule CELL="inst" DEPTH="0" FILE_NAME="bd_0_hls_inst_0.v" ORIG_REF_NAME="yusur_hash_allocation" TOP_CELL="bd_0_i/hls_inst/inst">
+    <SubModules count="7">Block_entry5_proc3_U0 Loop_LOOP_FORWARD_proc_U0 Loop_VITIS_LOOP_105_1_proc4_U0 batch_data_V_U keep_data_V_U last_data_V_U pkt_len_1_loc_channel_U</SubModules>
+    <Resources BRAM="3" FF="511" LUT="396" LUTRAM="16" LogicLUT="380" RAMB18="1" RAMB36="1"/>
+    <LocalResources FF="4"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Block_entry5_proc3_U0" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_Block_entry5_proc3">
+    <SubModules count="1">regslice_both_i_axiu_key_U</SubModules>
+    <Resources FF="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Block_entry5_proc3_U0/regslice_both_i_axiu_key_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Block_entry5_proc3.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_LOOP_FORWARD_proc_U0" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_Loop_LOOP_FORWARD_proc">
+    <SubModules count="4">flow_control_loop_pipe_U regslice_both_o_axiu_user0_data_V_data_V_U regslice_both_o_axiu_user0_data_V_keep_V_U regslice_both_o_axiu_user0_data_V_last_V_U</SubModules>
+    <Resources FF="193" LUT="113" LogicLUT="113"/>
+    <LocalResources FF="34"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U" BINDMODULE="yusur_hash_allocation_flow_control_loop_pipe" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_LOOP_FORWARD_proc.v" ORIG_REF_NAME="yusur_hash_allocation_flow_control_loop_pipe">
+    <Resources FF="1" LUT="56" LogicLUT="56"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_LOOP_FORWARD_proc_U0/regslice_both_o_axiu_user0_data_V_data_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_LOOP_FORWARD_proc.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="132" LUT="47" LogicLUT="47"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_LOOP_FORWARD_proc_U0/regslice_both_o_axiu_user0_data_V_keep_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_LOOP_FORWARD_proc.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="20" LUT="7" LogicLUT="7"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_LOOP_FORWARD_proc_U0/regslice_both_o_axiu_user0_data_V_last_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_LOOP_FORWARD_proc.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="6" LUT="3" LogicLUT="3"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4">
+    <SubModules count="5">flow_control_loop_pipe_U regslice_both_i_axiu_stream_data_V_data_V_U regslice_both_i_axiu_user0_data_V_data_V_U regslice_both_i_axiu_user0_data_V_keep_V_U regslice_both_i_axiu_user0_data_V_last_V_U</SubModules>
+    <Resources FF="226" LUT="181" LogicLUT="181"/>
+    <LocalResources FF="65"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0/flow_control_loop_pipe_U" BINDMODULE="yusur_hash_allocation_flow_control_loop_pipe" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4.v" ORIG_REF_NAME="yusur_hash_allocation_flow_control_loop_pipe">
+    <Resources FF="1" LUT="108" LogicLUT="108"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0/regslice_both_i_axiu_stream_data_V_data_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="2" LUT="1" LogicLUT="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0/regslice_both_i_axiu_user0_data_V_data_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="132" LUT="40" LogicLUT="40"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0/regslice_both_i_axiu_user0_data_V_keep_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="20" LUT="9" LogicLUT="9"/>
+  </RtlModule>
+  <RtlModule CELL="inst/Loop_VITIS_LOOP_105_1_proc4_U0/regslice_both_i_axiu_user0_data_V_last_V_U" BINDMODULE="yusur_hash_allocation_regslice_both" DEPTH="2" FILE_NAME="yusur_hash_allocation_Loop_VITIS_LOOP_105_1_proc4.v" ORIG_REF_NAME="yusur_hash_allocation_regslice_both">
+    <Resources FF="6" LUT="23" LogicLUT="23"/>
+  </RtlModule>
+  <RtlModule CELL="inst/batch_data_V_U" BINDMODULE="yusur_hash_allocation_batch_data_V_RAM_AUTO_1R1W" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_batch_data_V_RAM_AUTO_1R1W">
+    <Resources BRAM="2" FF="6" LUT="4" LogicLUT="4" RAMB36="1"/>
+    <LocalResources FF="6" LUT="4" LogicLUT="4"/>
+  </RtlModule>
+  <RtlModule CELL="inst/keep_data_V_U" BINDMODULE="yusur_hash_allocation_keep_data_V_RAM_AUTO_1R1W" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_keep_data_V_RAM_AUTO_1R1W">
+    <Resources BRAM="1" FF="6" LUT="5" LogicLUT="5" RAMB18="1"/>
+    <LocalResources FF="6" LUT="5" LogicLUT="5"/>
+  </RtlModule>
+  <RtlModule CELL="inst/last_data_V_U" BINDMODULE="yusur_hash_allocation_last_data_V_RAM_AUTO_1R1W" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_last_data_V_RAM_AUTO_1R1W">
+    <Resources FF="7" LUT="26" LUTRAM="16" LogicLUT="10"/>
+    <LocalResources FF="6" LUT="8" LogicLUT="8"/>
+  </RtlModule>
+  <RtlModule CELL="inst/pkt_len_1_loc_channel_U" BINDMODULE="yusur_hash_allocation_fifo_w32_d2_S" DEPTH="1" FILE_NAME="yusur_hash_allocation.v" ORIG_REF_NAME="yusur_hash_allocation_fifo_w32_d2_S">
+    <Resources FF="68" LUT="67" LogicLUT="67"/>
+    <LocalResources FF="4" LUT="1" LogicLUT="1"/>
+  </RtlModule>
+</RtlModules>
+<TimingPaths>
+  <TPATH DATAPATH_DELAY="1.665" DATAPATH_LOGIC_DELAY="0.561" DATAPATH_NET_DELAY="1.104" ENDPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[0]/R" LOGIC_LEVELS="6" MAX_FANOUT="45" SLACK="1.718" STARTPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg/C">
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="68"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/q1[0]_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT5" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_40" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="10"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/i_fu_56[30]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT3" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[0]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="239"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="1.665" DATAPATH_LOGIC_DELAY="0.561" DATAPATH_NET_DELAY="1.104" ENDPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[10]/R" LOGIC_LEVELS="6" MAX_FANOUT="45" SLACK="1.718" STARTPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg/C">
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="68"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/q1[0]_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT5" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_40" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="10"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/i_fu_56[30]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT3" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[10]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="239"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="1.665" DATAPATH_LOGIC_DELAY="0.561" DATAPATH_NET_DELAY="1.104" ENDPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[11]/R" LOGIC_LEVELS="6" MAX_FANOUT="45" SLACK="1.718" STARTPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg/C">
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="68"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/q1[0]_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT5" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_40" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="10"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/i_fu_56[30]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT3" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[11]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="239"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="1.665" DATAPATH_LOGIC_DELAY="0.561" DATAPATH_NET_DELAY="1.104" ENDPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[12]/R" LOGIC_LEVELS="6" MAX_FANOUT="45" SLACK="1.718" STARTPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg/C">
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="68"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/q1[0]_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT5" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_40" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="10"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/i_fu_56[30]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT3" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[12]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="239"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="1.665" DATAPATH_LOGIC_DELAY="0.561" DATAPATH_NET_DELAY="1.104" ENDPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[13]/R" LOGIC_LEVELS="6" MAX_FANOUT="45" SLACK="1.718" STARTPOINT_PIN="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg/C">
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/ap_loop_init_reg" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="68"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/q1[0]_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT5" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_40" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="10"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/pkt_len_1_loc_channel_U/U_yusur_hash_allocation_fifo_w32_d2_S_ShiftReg/icmp_ln119_fu_137_p2_carry_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/icmp_ln119_fu_137_p2_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/flow_control_loop_pipe_U/i_fu_56[30]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT3" LINE_NUMBER="77"/>
+    <CELL  NAME="bd_0_i/hls_inst/inst/Loop_LOOP_FORWARD_proc_U0/i_fu_56_reg[13]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" LINE_NUMBER="239"/>
+  </TPATH>
+</TimingPaths>
+<VivadoReportFiles>
+  <ReportFile TYPE="design_analysis" PATH="verilog/report/yusur_hash_allocation_design_analysis_synth.rpt"/>
+  <ReportFile TYPE="failfast" PATH="verilog/report/yusur_hash_allocation_failfast_synth.rpt"/>
+  <ReportFile TYPE="timing" PATH="verilog/report/yusur_hash_allocation_timing_synth.rpt"/>
+  <ReportFile TYPE="timing_paths" PATH="verilog/report/yusur_hash_allocation_timing_paths_synth.rpt"/>
+  <ReportFile TYPE="utilization" PATH="verilog/report/yusur_hash_allocation_utilization_synth.rpt"/>
+  <ReportFile TYPE="utilization_hierarchical" PATH="verilog/report/yusur_hash_allocation_utilization_hierarchical_synth.rpt"/>
+</VivadoReportFiles>
+</profile>

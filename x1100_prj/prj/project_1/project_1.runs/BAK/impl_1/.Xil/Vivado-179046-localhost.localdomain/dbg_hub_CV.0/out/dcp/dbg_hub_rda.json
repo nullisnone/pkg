@@ -1,0 +1,30 @@
+{
+    "Report Information": {
+        "Copyright": "Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.",
+        "Tool Version": "Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022",
+        "Date": "Thu Feb 19 20:16:07 2026",
+        "Host": "localhost.localdomain running 64-bit unknown",
+        "Command": "report_design_analysis -qor_summary -disable_device_warning -json /root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/impl_1/.Xil/Vivado-117519-localhost.localdomain/dc_drv.0/dc/prj_ip.runs/dbg_hub_synth_1/.Xil/Vivado-118186-localhost.localdomain/dcp0/dbg_hub_rda.json",
+        "Design": "dbg_hub",
+        "Device": "xcku15p_CIV",
+        "Design State": "Synthesized"
+    },
+    "Design QoR Summary": [{
+            "Task Name": "synth_design",
+            "Options": "-incremental_mode off",
+            "Directives": "",
+            "Runtime(mins)": "0",
+            "Wns(ns)": "",
+            "Tns(ns)": "",
+            "Whs(ns)": "",
+            "Ths(ns)": "",
+            "RQA": "",
+            "Global Cong Level N-E-S-W": "",
+            "Global Cong Tile% N-E-S-W": "",
+            "Long Cong Level N-E-S-W": "",
+            "Long Cong Tile% N-E-S-W": "",
+            "Short Cong Level N-E-S-W": "",
+            "Short Cong Tile% N-E-S-W": "",
+            "Number of threads": "4"
+        }]
+}

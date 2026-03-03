@@ -1,0 +1,25 @@
+# 1. Ignore EVERYTHING
+*
+
+# 2 allow traversing sub-directories
+!*/
+
+# 3. Un-ignore (Allow) specific text file extensions
+!*.c
+!*.cpp
+!*.h
+!*.hpp
+!*.py
+!*.sh
+!*.tcl
+!*.txt
+!*.md
+!*.json
+!*.xml
+!Makefile
+!LICENSE
+!.gitignore
+!.v
+!.vh
+!.xpr
+

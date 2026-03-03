@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="vio_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/vio_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_yusur_udp_filter_0_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_yusur_udp_filter_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_data_fifo_2_2_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_2_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_data_fifo_2_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_2_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axis_data_fifo_2_2_synth_1"/>
+	</Run>
+	<Run Id="design_1_axis_data_fifo_0_3_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_0_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axis_data_fifo_2_2_synth_1"/>
+	</Run>
+	<Run Id="design_1_axis_data_fifo_0_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_dwidth_converter_0_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_dwidth_converter_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_data_fifo_2_1_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_2_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axis_data_fifo_2_2_synth_1"/>
+	</Run>
+	<Run Id="design_1_yusur_hash_allocation_0_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_yusur_hash_allocation_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_data_fifo_0_2_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_0_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_data_fifo_2_3_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_axis_data_fifo_2_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axis_data_fifo_2_2_synth_1"/>
+	</Run>
+	<Run Id="design_1_system_ila_0_0_synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/design_1_system_ila_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/root/DOWNLOAD/SWIFT/pkg/pkg/x1100_prj/prj/project_1/project_1.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="vio_0_synth_1"/>
+		<Parent Id="design_1_yusur_udp_filter_0_0_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_2_2_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_2_0_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_0_3_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_0_0_synth_1"/>
+		<Parent Id="design_1_axis_dwidth_converter_0_0_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_2_1_synth_1"/>
+		<Parent Id="design_1_yusur_hash_allocation_0_0_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_0_2_synth_1"/>
+		<Parent Id="design_1_axis_data_fifo_2_3_synth_1"/>
+		<Parent Id="design_1_system_ila_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
