@@ -22,22 +22,39 @@ recv_data    = "chn_0.pcap"
 
 cfg_file = 'mktmsg_lb_cfg.json'
  
-class Pcap:
-    def __init__(self, filename, link_type=1):
-        self.pcap_file = open(filename, 'wb')
-        self.pcap_file.write(struct.pack('@ I H H i I I I', 0xa1b2c3d4, 2, 4, 0, 0, 65535, link_type))
- 
-    def write(self, data, data_len):
-        ts_sec, ts_usec = map(int, str(time.time()).split('.'))
-        self.pcap_file.write(struct.pack('@ I I I I', ts_sec, ts_usec, data_len, data_len))
-        return self.pcap_file.write(data)
- 
-    def close(self):
-        self.pcap_file.close()
+def parse_input_line(line):
+    tokens = line.strip().split(',')
+    data = bytearray()
+    for token in tokens:
+        token = token.strip()
+        if not token:
+            continue
+        if token == '|':
+            data.append(255)
+        else:
+            try:
+                val = int(token)
+                if val < 0:
+                    data.append(0)
+                elif val >= 255:
+                    data.append(254)
+                else:
+                    data.append(val)
+            except ValueError:
+                pass # Ignore non-integer tokens
+    return data
 
-def run_test_loop(input_pcap_file):
-    print(f"Running test loop with input file: {input_pcap_file}")
-    output_pcap_file = "output.pcap"
+def format_output_data(data):
+    tokens = []
+    for byte in data:
+        if byte == 255:
+            tokens.append('|')
+        else:
+            tokens.append(str(byte))
+    return ",".join(tokens)
+
+def run_test_loop(input_file, output_file):
+    print(f"Running test loop with input file: {input_file}, output file: {output_file}")
     
     with open(cfg_file, 'r', encoding='UTF-8') as file:    
         cfg_info = json.load(file)
@@ -70,24 +87,12 @@ def run_test_loop(input_pcap_file):
             ndpp_impl.yusur_ndpp_dev_destroy(ndpp_dev)
             return
 
-        out_pcap = Pcap(output_pcap_file)
-        
-        with open(input_pcap_file, 'rb') as f:
-            # Skip global header (24 bytes)
-            f.read(24)
-            
+        with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
             packet_count = 0
-            while True:
-                # Read packet header (16 bytes)
-                header = f.read(16)
-                if not header:
-                    break # End of file
-                
-                ts_sec, ts_usec, incl_len, orig_len = struct.unpack('@ I I I I', header)
-                # Read packet data
-                packet_data = f.read(incl_len)
+            for line in f_in:
+                packet_data = parse_input_line(line)
                 if not packet_data:
-                    break
+                    continue
 
                 # Send packet
                 ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, packet_data, len(packet_data), 0)
@@ -102,7 +107,8 @@ def run_test_loop(input_pcap_file):
                 while time.time() - start_time < 2: # 2 second timeout per packet
                     result = ndpp_impl.yusur_ndpp_receive(rx_chn, buf, len(buf), ndpp_impl._flag_enum.NDPP_NONBLOCK)
                     if result > 0:
-                        out_pcap.write(buf[:result], result)
+                        output_line = format_output_data(buf[:result])
+                        f_out.write(output_line + "\n")
                         received = True
                         break
                     time.sleep(0.0001) # Short sleep to avoid busy wait
@@ -119,12 +125,10 @@ def run_test_loop(input_pcap_file):
     except Exception as e:
         print(f"Error: {e}")
     finally:
-        if 'out_pcap' in locals():
-            out_pcap.close()
         ndpp_impl.yusur_ndpp_dev_destroy(ndpp_dev)
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        run_test_loop(sys.argv[1])
+    if len(sys.argv) > 2:
+        run_test_loop(sys.argv[1], sys.argv[2])
     else:
-        print("Usage: python mktmsg_lb.py <input_pcap_file>")
+        print("Usage: python mktmsg_lb.py <input_file> <output_file>")
