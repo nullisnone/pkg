@@ -7,69 +7,6 @@
 #include <stdint.h>
 #include <iomanip>
 
-
-template <int CUR_KW, int CUR_HW>
-void hashmurmur3(ap_uint<CUR_KW> key_strm,
-                 ap_uint<CUR_HW> &hash_strm)
-{
-
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II = 1
-#endif
-    const int nblocks = CUR_KW / CUR_HW;
-
-    // keyBlen is the BYTE len of the key.
-    const ap_uint<CUR_HW> keyBlen = CUR_KW / 8;
-    const uint32_t c1 = 0xcc9e2d51;
-    const uint32_t c2 = 0x1b873593;
-    const uint32_t c3 = 0xe6546b64;
-    const uint32_t c4 = 0x85ebca6b;
-    const uint32_t c5 = 0xc2b2ae35;
-    //----------
-    // body
-
-    // hash is the output/return value. use magic word(seed) to initial the output
-    ap_uint<CUR_HW> hash = 42; // seed;
-
-    ap_uint<32> kt;        // temp32
-    ap_uint<CUR_KW> key_t; // temp512
-    key_t = key_strm;
-#ifdef ENABLE_MURMUR3_REDUCE
-    int j = 0;
-    kt = key_t(32 * j + 31, 32 * j);
-    kt *= c1;
-    kt = (kt << 15) | (kt >> (32 - 15)); // ROTL32(kt,15);//
-    kt *= c2;
-    hash_strm = kt;
-
-#else
-LOOP_MURMUR3_MAIN:
-    for (int j = 0; j < nblocks; ++j)
-    {
-        kt = key_t(32 * j + 31, 32 * j);
-        kt *= c1;
-        kt = (kt << 15) | (kt >> (32 - 15)); // ROTL32(kt,15);//
-        kt *= c2;
-
-        hash ^= kt;
-        hash = (hash << 13) | (hash >> (32 - 13)); // ROTL32(hash,13);//
-        hash = hash * 5 + c3;
-    }
-
-    // finalization
-    hash ^= keyBlen;
-    hash ^= hash >> 16;
-    hash *= c4;
-    hash ^= hash >> 13;
-    hash *= c5;
-    hash ^= hash >> 16;
-
-    // output hash stream width in 32bit.
-    hash_strm = hash;
-#endif
-} // murmur3
-
-
 void yusur_hash_allocation(hls::stream<ap_uint<80> >& i_axiu_key,                    //hash key
                            hls::stream<ap_axiu<64, 0, 0, 0> >& i_axiu_stream_data,   //udp data after filter
                            hls::stream<ap_axiu<64, 0, 0, 0> >& i_axiu_user0_data,
@@ -83,45 +20,119 @@ void yusur_hash_allocation(hls::stream<ap_uint<80> >& i_axiu_key,               
 #pragma HLS INTERFACE ap_ctrl_none port = return
 
 
-    ap_uint<80> hash_key;
-    ap_uint<32> out_hash;
-    ap_uint<1> end_flag = 0;
     ap_axiu<64, 0, 0, 0> i_rdata;
-    ap_axiu<64, 0, 0, 0> i_rdata_unused;
 
-    // Use arrays (BRAM/LUTRAM) instead of huge registers
-    ap_uint<64> batch_data[256];
-    ap_uint<8>  keep_data[256];
-    ap_uint<1>  last_data[256];
-    int pkt_len = 0;
+    // Define matrices (8x8 as per new format)
+    uint8_t A_MATRIX[8][8];
+    uint8_t B_MATRIX[8][8];
+    uint8_t C_MATRIX[8][8];
+    
+    // Partition matrices for parallel access
+    #pragma HLS ARRAY_PARTITION variable=A_MATRIX complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=B_MATRIX complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=C_MATRIX complete dim=0
+
+    // Header storage
+    uint8_t HEADER_INFO[8];
+    #pragma HLS ARRAY_PARTITION variable=HEADER_INFO complete
+
+    // Output buffer removed (streaming directly)
 
 #pragma HLS DATAFLOW
-    hash_key = i_axiu_key.read();
-    hashmurmur3<80, 32>(hash_key, out_hash);
     
-    // Store stage: Read i_axiu_user0_data into array
-    LOOP_STORE:
-    pkt_len = 0;
-    do {
-        i_axiu_stream_data.read_nb(i_rdata_unused); // Discard stream data
-        i_rdata = i_axiu_user0_data.read();
-        
-        if (pkt_len < 256) {
-            batch_data[pkt_len] = i_rdata.data;
-            keep_data[pkt_len] = i_rdata.keep;
-            last_data[pkt_len] = i_rdata.last;
-            pkt_len++;
-        }
-    } while (!i_rdata.last);
+    // Drain unused stream data if any (non-blocking)
+    if (!i_axiu_stream_data.empty()) {
+        i_axiu_stream_data.read();
+    }
+    if (!i_axiu_key.empty()) {
+        i_axiu_key.read();
+    }
 
-    // Forward stage: Read array to output
-    LOOP_FORWARD:
-    for (int i = 0; i < pkt_len; ++i)
-    {
-        ap_axiu<64, 0, 0, 0> o_wdata;
-        o_wdata.data = batch_data[i];
-        o_wdata.keep = keep_data[i];
-        o_wdata.last = last_data[i];
-        o_axiu_user0_data.write(o_wdata);    
+    ap_axiu<64, 0, 0, 0> in_val;
+    int batch_counter = 0;
+    bool read_done = false;
+    
+    // Unified Loop: Read until TLAST is found
+    // Handles reading Header, Matrices, and draining excess data in one go
+    LOOP_READ_AND_DRAIN:
+    while (!read_done) {
+        #pragma HLS PIPELINE
+        in_val = i_axiu_user0_data.read();
+        
+        if (batch_counter == 0) {
+            // Header
+            for (int k = 0; k < 8; k++) {
+                #pragma HLS UNROLL
+                HEADER_INFO[k] = (in_val.data >> (k * 8)) & 0xFF;
+            }
+        } else if (batch_counter < 9) {
+            // Matrix A (Row batch_counter-1)
+            int row = batch_counter - 1;
+            for (int k = 0; k < 8; k++) {
+                #pragma HLS UNROLL
+                A_MATRIX[row][k] = (in_val.data >> (k * 8)) & 0xFF;
+            }
+        } else if (batch_counter < 17) {
+            // Matrix B (Row batch_counter-9)
+            int row = batch_counter - 9;
+            for (int k = 0; k < 8; k++) {
+                #pragma HLS UNROLL
+                B_MATRIX[row][k] = (in_val.data >> (k * 8)) & 0xFF;
+            }
+        } 
+        // batch_counter >= 17: Just drain (do nothing with data)
+
+        // Check TLAST
+        if (in_val.last == 1) {
+            // If TLAST happened at any index other than 16 (the 17th word), it's invalid length
+            if (batch_counter != 16) {
+                // Invalid length: Overwrite Header with 0xFF
+                for(int k=0; k<8; k++) {
+                    #pragma HLS UNROLL
+                    HEADER_INFO[k] = 0xFF;
+                }
+            }
+            read_done = true; // Signal to exit loop
+        }
+        
+        batch_counter++;
+    }
+
+    // Always perform calculation and output (regardless of validity)
+    // Matrix Multiplication: C = A * B (Element-wise for now, or true multiplication if desired)
+    LOOP_CALC:
+    for(int i=0; i<8; i++) {
+            for(int j=0; j<8; j++) {
+                #pragma HLS PIPELINE
+                // Example: Element-wise multiplication
+                C_MATRIX[i][j] = A_MATRIX[i][j] * B_MATRIX[i][j];
+            }
+        }
+            
+    // Unified Output Loop: Header (1 word) + C_MATRIX (8 words) = 9 words
+    LOOP_OUTPUT_ALL:
+    for(int i=0; i<9; i++) {
+        #pragma HLS PIPELINE
+        ap_axiu<64, 0, 0, 0> out_val;
+        out_val.data = 0;
+        out_val.keep = 0xFF;
+        out_val.last = (i == 8) ? 1 : 0; // Set TLAST on the 9th word (index 8)
+
+        if (i == 0) {
+            // Write Header (Prefix)
+            for (int k = 0; k < 8; k++) {
+                #pragma HLS UNROLL
+                out_val.data |= ((ap_uint<64>)HEADER_INFO[k]) << (k * 8);
+            }
+        } else {
+            // Write C_MATRIX Row (i-1)
+            int row_idx = i - 1;
+            for(int j=0; j<8; j++) {
+                #pragma HLS UNROLL
+                out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][j]) << (j * 8);
+            }
+        }
+        o_axiu_user0_data.write(out_val);
     }
 }
+

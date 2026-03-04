@@ -15,7 +15,7 @@
         <PipelineType>dataflow</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>2.696</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.720</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -32,11 +32,11 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>3</BRAM_18K>
-            <FF>208</FF>
-            <LUT>380</LUT>
-            <URAM>0</URAM>
             <DSP>0</DSP>
+            <FF>23383</FF>
+            <LUT>20411</LUT>
+            <BRAM_18K>0</BRAM_18K>
+            <URAM>0</URAM>
         </Resources>
         <AvailableResources>
             <BRAM_18K>1968</BRAM_18K>
@@ -47,28 +47,6 @@
         </AvailableResources>
     </AreaEstimates>
     <InterfaceSummary>
-        <RtlPorts>
-            <name>ap_clk</name>
-            <Object>yusur_hash_allocation</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_rst_n</name>
-            <Object>yusur_hash_allocation</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
         <RtlPorts>
             <name>i_axiu_key_TDATA</name>
             <Object>i_axiu_key</Object>
@@ -321,38 +299,67 @@
             <Attribute>control</Attribute>
             <CType>int</CType>
         </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>yusur_hash_allocation</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>yusur_hash_allocation</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="3">
             <ModuleName>yusur_hash_allocation</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>Loop_VITIS_LOOP_105_1_proc4_U0</InstName>
-                    <ModuleName>Loop_VITIS_LOOP_105_1_proc4</ModuleName>
+                    <InstName>Loop_LOOP_READ_AND_DRAIN_proc4_U0</InstName>
+                    <ModuleName>Loop_LOOP_READ_AND_DRAIN_proc4</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>68</ID>
+                    <BindInstances>add_ln98_fu_1327_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>Loop_LOOP_CALC_proc_U0</InstName>
+                    <ModuleName>Loop_LOOP_CALC_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
                     <ID>80</ID>
-                    <BindInstances>pkt_len_3_fu_179_p2</BindInstances>
+                    <BindInstances>add_ln104_fu_1368_p2 add_ln104_1_fu_1394_p2 mul_8s_8s_8_1_1_U37 add_ln105_fu_1812_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>Loop_LOOP_FORWARD_proc_U0</InstName>
-                    <ModuleName>Loop_LOOP_FORWARD_proc</ModuleName>
+                    <InstName>Loop_LOOP_OUTPUT_ALL_proc_U0</InstName>
+                    <ModuleName>Loop_LOOP_OUTPUT_ALL_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>103</ID>
-                    <BindInstances>add_ln119_fu_143_p2</BindInstances>
+                    <ID>212</ID>
+                    <BindInstances>add_ln114_fu_690_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>Block_entry5_proc3_U0</InstName>
-                    <ModuleName>Block_entry5_proc3</ModuleName>
+                    <InstName>Block_entry60_proc3_U0</InstName>
+                    <ModuleName>Block_entry60_proc3</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>119</ID>
+                    <ID>296</ID>
                 </Instance>
             </InstancesList>
-            <BindInstances>batch_data_V_U keep_data_V_U last_data_V_U pkt_len_1_loc_channel_U</BindInstances>
+            <BindInstances>mux_case_7756_loc_channel_U mux_case_6755_loc_channel_U mux_case_5754_loc_channel_U mux_case_4753_loc_channel_U mux_case_3752_loc_channel_U mux_case_2751_loc_channel_U mux_case_1750_loc_channel_U mux_case_0749_loc_channel_U mux_case_7747_loc_channel_U mux_case_6746_loc_channel_U mux_case_5745_loc_channel_U mux_case_4744_loc_channel_U mux_case_3743_loc_channel_U mux_case_2742_loc_channel_U mux_case_1741_loc_channel_U mux_case_0740_loc_channel_U mux_case_7738_loc_channel_U mux_case_6737_loc_channel_U mux_case_5736_loc_channel_U mux_case_4735_loc_channel_U mux_case_3734_loc_channel_U mux_case_2733_loc_channel_U mux_case_1732_loc_channel_U mux_case_0731_loc_channel_U mux_case_7729_loc_channel_U mux_case_6728_loc_channel_U mux_case_5727_loc_channel_U mux_case_4726_loc_channel_U mux_case_3725_loc_channel_U mux_case_2724_loc_channel_U mux_case_1723_loc_channel_U mux_case_0722_loc_channel_U mux_case_7720_loc_channel_U mux_case_6719_loc_channel_U mux_case_5718_loc_channel_U mux_case_4717_loc_channel_U mux_case_3716_loc_channel_U mux_case_2715_loc_channel_U mux_case_1714_loc_channel_U mux_case_0713_loc_channel_U mux_case_7711_loc_channel_U mux_case_6710_loc_channel_U mux_case_5709_loc_channel_U mux_case_4708_loc_channel_U mux_case_3707_loc_channel_U mux_case_2706_loc_channel_U mux_case_1705_loc_channel_U mux_case_0704_loc_channel_U mux_case_7702_loc_channel_U mux_case_6701_loc_channel_U mux_case_5700_loc_channel_U mux_case_4699_loc_channel_U mux_case_3698_loc_channel_U mux_case_2697_loc_channel_U mux_case_1696_loc_channel_U mux_case_0695_loc_channel_U mux_case_7693_loc_channel_U mux_case_6692_loc_channel_U mux_case_5691_loc_channel_U mux_case_4690_loc_channel_U mux_case_3689_loc_channel_U mux_case_2688_loc_channel_U mux_case_1687_loc_channel_U mux_case_0686_loc_channel_U mux_case_7628_loc_channel_U mux_case_6627_loc_channel_U mux_case_5626_loc_channel_U mux_case_4625_loc_channel_U mux_case_3624_loc_channel_U mux_case_2623_loc_channel_U mux_case_1622_loc_channel_U mux_case_0621_loc_channel_U mux_case_7619_loc_channel_U mux_case_6618_loc_channel_U mux_case_5617_loc_channel_U mux_case_4616_loc_channel_U mux_case_3615_loc_channel_U mux_case_2614_loc_channel_U mux_case_1613_loc_channel_U mux_case_0612_loc_channel_U mux_case_7610_loc_channel_U mux_case_6609_loc_channel_U mux_case_5608_loc_channel_U mux_case_4607_loc_channel_U mux_case_3606_loc_channel_U mux_case_2605_loc_channel_U mux_case_1604_loc_channel_U mux_case_0603_loc_channel_U mux_case_7601_loc_channel_U mux_case_6600_loc_channel_U mux_case_5599_loc_channel_U mux_case_4598_loc_channel_U mux_case_3597_loc_channel_U mux_case_2596_loc_channel_U mux_case_1595_loc_channel_U mux_case_0594_loc_channel_U mux_case_7592_loc_channel_U mux_case_6591_loc_channel_U mux_case_5590_loc_channel_U mux_case_4589_loc_channel_U mux_case_3588_loc_channel_U mux_case_2587_loc_channel_U mux_case_1586_loc_channel_U mux_case_0585_loc_channel_U mux_case_7583_loc_channel_U mux_case_6582_loc_channel_U mux_case_5581_loc_channel_U mux_case_4580_loc_channel_U mux_case_3579_loc_channel_U mux_case_2578_loc_channel_U mux_case_1577_loc_channel_U mux_case_0576_loc_channel_U mux_case_7574_loc_channel_U mux_case_6573_loc_channel_U mux_case_5572_loc_channel_U mux_case_4571_loc_channel_U mux_case_3570_loc_channel_U mux_case_2569_loc_channel_U mux_case_1568_loc_channel_U mux_case_0567_loc_channel_U mux_case_7_loc_channel_U mux_case_6_loc_channel_U mux_case_5_loc_channel_U mux_case_4_loc_channel_U mux_case_3_loc_channel_U mux_case_2_loc_channel_U mux_case_1_loc_channel_U mux_case_0_loc_channel_U p_loc_channel_U p_loc62_channel_U p_loc63_channel_U p_loc64_channel_U p_loc65_channel_U p_loc66_channel_U p_loc67_channel_U p_loc68_channel_U mux_case_7765_loc_channel_U mux_case_6764_loc_channel_U mux_case_5763_loc_channel_U mux_case_4762_loc_channel_U mux_case_3761_loc_channel_U mux_case_2760_loc_channel_U mux_case_1759_loc_channel_U mux_case_0758_loc_channel_U mux_case_7685_loc_channel_U mux_case_6684_loc_channel_U mux_case_5683_loc_channel_U mux_case_4682_loc_channel_U mux_case_3681_loc_channel_U mux_case_2680_loc_channel_U mux_case_1679_loc_channel_U mux_case_0678_loc_channel_U mux_case_7677_loc_channel_U mux_case_6676_loc_channel_U mux_case_5675_loc_channel_U mux_case_4674_loc_channel_U mux_case_3673_loc_channel_U mux_case_2672_loc_channel_U mux_case_1671_loc_channel_U mux_case_0670_loc_channel_U mux_case_7669_loc_channel_U mux_case_6668_loc_channel_U mux_case_5667_loc_channel_U mux_case_4666_loc_channel_U mux_case_3665_loc_channel_U mux_case_2664_loc_channel_U mux_case_1663_loc_channel_U mux_case_0662_loc_channel_U mux_case_7661_loc_channel_U mux_case_6660_loc_channel_U mux_case_5659_loc_channel_U mux_case_4658_loc_channel_U mux_case_3657_loc_channel_U mux_case_2656_loc_channel_U mux_case_1655_loc_channel_U mux_case_0654_loc_channel_U mux_case_7653_loc_channel_U mux_case_6652_loc_channel_U mux_case_5651_loc_channel_U mux_case_4650_loc_channel_U mux_case_3649_loc_channel_U mux_case_2648_loc_channel_U mux_case_1647_loc_channel_U mux_case_0646_loc_channel_U mux_case_7645_loc_channel_U mux_case_6644_loc_channel_U mux_case_5643_loc_channel_U mux_case_4642_loc_channel_U mux_case_3641_loc_channel_U mux_case_2640_loc_channel_U mux_case_1639_loc_channel_U mux_case_0638_loc_channel_U mux_case_7637_loc_channel_U mux_case_6636_loc_channel_U mux_case_5635_loc_channel_U mux_case_4634_loc_channel_U mux_case_3633_loc_channel_U mux_case_2632_loc_channel_U mux_case_1631_loc_channel_U mux_case_0630_loc_channel_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>Block_entry5_proc3</Name>
+            <Name>Block_entry60_proc3</Name>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.50</TargetClockPeriod>
@@ -375,7 +382,7 @@
                     <FF>2</FF>
                     <AVAIL_FF>1045440</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>20</LUT>
+                    <LUT>33</LUT>
                     <AVAIL_LUT>522720</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -391,15 +398,15 @@
             </AreaEstimates>
         </Module>
         <Module>
-            <Name>Loop_VITIS_LOOP_105_1_proc4</Name>
+            <Name>Loop_LOOP_READ_AND_DRAIN_proc4</Name>
             <Loops>
-                <VITIS_LOOP_105_1/>
+                <LOOP_READ_AND_DRAIN/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.50</TargetClockPeriod>
                     <ClockUncertainty>0.94</ClockUncertainty>
-                    <EstimatedClockPeriod>2.284</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.371</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -412,8 +419,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_105_1>
-                        <Name>VITIS_LOOP_105_1</Name>
+                    <LOOP_READ_AND_DRAIN>
+                        <Name>LOOP_READ_AND_DRAIN</Name>
                         <Slack>2.55</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -422,15 +429,15 @@
                         <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_105_1>
+                    </LOOP_READ_AND_DRAIN>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>66</FF>
+                    <FF>2243</FF>
                     <AVAIL_FF>1045440</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>118</LUT>
+                    <LUT>1762</LUT>
                     <AVAIL_LUT>522720</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -445,50 +452,111 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_105_1" OPTYPE="add" PRAGMA="" RTLNAME="pkt_len_3_fu_179_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:113" URAM="0" VARIABLE="pkt_len_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_READ_AND_DRAIN" OPTYPE="add" PRAGMA="" RTLNAME="add_ln98_fu_1327_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:98" URAM="0" VARIABLE="add_ln98"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>Loop_LOOP_FORWARD_proc</Name>
+            <Name>Loop_LOOP_CALC_proc</Name>
             <Loops>
-                <LOOP_FORWARD/>
+                <LOOP_CALC_VITIS_LOOP_105_5/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.50</TargetClockPeriod>
                     <ClockUncertainty>0.94</ClockUncertainty>
-                    <EstimatedClockPeriod>2.696</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.720</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>undef</Best-caseLatency>
-                    <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>undef</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <Best-caseLatency>66</Best-caseLatency>
+                    <Average-caseLatency>66</Average-caseLatency>
+                    <Worst-caseLatency>66</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.231 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.231 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.231 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>66</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <LOOP_FORWARD>
-                        <Name>LOOP_FORWARD</Name>
+                    <LOOP_CALC_VITIS_LOOP_105_5>
+                        <Name>LOOP_CALC_VITIS_LOOP_105_5</Name>
                         <Slack>2.55</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <TripCount>64</TripCount>
+                        <Latency>64</Latency>
+                        <AbsoluteTimeLatency>0.224 us</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
-                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </LOOP_FORWARD>
+                    </LOOP_CALC_VITIS_LOOP_105_5>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>36</FF>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1968</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <FF>1064</FF>
                     <AVAIL_FF>1045440</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>113</LUT>
+                    <LUT>2110</LUT>
+                    <AVAIL_LUT>522720</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>1968</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>128</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_CALC_VITIS_LOOP_105_5" OPTYPE="add" PRAGMA="" RTLNAME="add_ln104_fu_1368_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:104" URAM="0" VARIABLE="add_ln104"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_CALC_VITIS_LOOP_105_5" OPTYPE="add" PRAGMA="" RTLNAME="add_ln104_1_fu_1394_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:104" URAM="0" VARIABLE="add_ln104_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="LOOP_CALC_VITIS_LOOP_105_5" OPTYPE="mul" PRAGMA="" RTLNAME="mul_8s_8s_8_1_1_U37" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:108" URAM="0" VARIABLE="mul_ln108"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_CALC_VITIS_LOOP_105_5" OPTYPE="add" PRAGMA="" RTLNAME="add_ln105_fu_1812_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:105" URAM="0" VARIABLE="add_ln105"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>Loop_LOOP_OUTPUT_ALL_proc</Name>
+            <Loops>
+                <LOOP_OUTPUT_ALL/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.50</TargetClockPeriod>
+                    <ClockUncertainty>0.94</ClockUncertainty>
+                    <EstimatedClockPeriod>2.366</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>12</Best-caseLatency>
+                    <Average-caseLatency>12</Average-caseLatency>
+                    <Worst-caseLatency>12</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>42.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>42.000 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>42.000 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>12</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <LOOP_OUTPUT_ALL>
+                        <Name>LOOP_OUTPUT_ALL</Name>
+                        <Slack>2.55</Slack>
+                        <TripCount>9</TripCount>
+                        <Latency>10</Latency>
+                        <AbsoluteTimeLatency>35.000 ns</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </LOOP_OUTPUT_ALL>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>74</FF>
+                    <AVAIL_FF>1045440</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>500</LUT>
                     <AVAIL_LUT>522720</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -503,7 +571,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_FORWARD" OPTYPE="add" PRAGMA="" RTLNAME="add_ln119_fu_143_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:119" URAM="0" VARIABLE="add_ln119"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LOOP_OUTPUT_ALL" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_690_p2" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:114" URAM="0" VARIABLE="add_ln114"/>
             </BindNodes>
         </Module>
         <Module>
@@ -512,7 +580,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.50</TargetClockPeriod>
                     <ClockUncertainty>0.94</ClockUncertainty>
-                    <EstimatedClockPeriod>2.696</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.720</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -528,28 +596,224 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>3</BRAM_18K>
-                    <AVAIL_BRAM>1968</AVAIL_BRAM>
-                    <UTIL_BRAM>~0</UTIL_BRAM>
-                    <FF>208</FF>
-                    <AVAIL_FF>1045440</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>382</LUT>
-                    <AVAIL_LUT>522720</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>128</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
                     <DSP>0</DSP>
                     <AVAIL_DSP>1968</AVAIL_DSP>
                     <UTIL_DSP>0</UTIL_DSP>
+                    <FF>23383</FF>
+                    <AVAIL_FF>1045440</AVAIL_FF>
+                    <UTIL_FF>2</UTIL_FF>
+                    <LUT>20413</LUT>
+                    <AVAIL_LUT>522720</AVAIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>1968</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>128</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="4" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="batch_data_V_U" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:93" URAM="0" VARIABLE="batch_data_V"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="keep_data_V_U" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:94" URAM="0" VARIABLE="keep_data_V"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="last_data_V_U" SOURCE="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:95" URAM="0" VARIABLE="last_data_V"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="pkt_len_1_loc_channel_U" SOURCE="" URAM="0" VARIABLE="pkt_len_1_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7756_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7756_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6755_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6755_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5754_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5754_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4753_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4753_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3752_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3752_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2751_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2751_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1750_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1750_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0749_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0749_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7747_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7747_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6746_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6746_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5745_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5745_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4744_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4744_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3743_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3743_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2742_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2742_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1741_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1741_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0740_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0740_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7738_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7738_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6737_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6737_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5736_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5736_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4735_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4735_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3734_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3734_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2733_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2733_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1732_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1732_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0731_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0731_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7729_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7729_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6728_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6728_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5727_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5727_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4726_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4726_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3725_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3725_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2724_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2724_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1723_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1723_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0722_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0722_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7720_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7720_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6719_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6719_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5718_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5718_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4717_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4717_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3716_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3716_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2715_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2715_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1714_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1714_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0713_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0713_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7711_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7711_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6710_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6710_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5709_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5709_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4708_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4708_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3707_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3707_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2706_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2706_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1705_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1705_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0704_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0704_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7702_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7702_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6701_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6701_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5700_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5700_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4699_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4699_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3698_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3698_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2697_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2697_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1696_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1696_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0695_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0695_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7693_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7693_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6692_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6692_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5691_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5691_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4690_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4690_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3689_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3689_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2688_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2688_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1687_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1687_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0686_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0686_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7628_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7628_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6627_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6627_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5626_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5626_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4625_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4625_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3624_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3624_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2623_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2623_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1622_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1622_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0621_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0621_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7619_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7619_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6618_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6618_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5617_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5617_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4616_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4616_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3615_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3615_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2614_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2614_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1613_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1613_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0612_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0612_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7610_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7610_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6609_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6609_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5608_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5608_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4607_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4607_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3606_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3606_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2605_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2605_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1604_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1604_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0603_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0603_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7601_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7601_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6600_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6600_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5599_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5599_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4598_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4598_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3597_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3597_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2596_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2596_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1595_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1595_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0594_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0594_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7592_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7592_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6591_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6591_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5590_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5590_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4589_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4589_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3588_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3588_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2587_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2587_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1586_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1586_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0585_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0585_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7583_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7583_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6582_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6582_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5581_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5581_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4580_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4580_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3579_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3579_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2578_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2578_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1577_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1577_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0576_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0576_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7574_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7574_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6573_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6573_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5572_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5572_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4571_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4571_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3570_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3570_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2569_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2569_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1568_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1568_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0567_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0567_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc62_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc62_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc63_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc63_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc64_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc64_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc65_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc65_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc66_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc66_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc67_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc67_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="p_loc68_channel_U" SOURCE="" URAM="0" VARIABLE="p_loc68_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7765_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7765_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6764_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6764_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5763_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5763_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4762_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4762_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3761_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3761_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2760_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2760_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1759_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1759_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0758_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0758_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7685_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7685_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6684_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6684_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5683_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5683_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4682_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4682_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3681_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3681_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2680_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2680_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1679_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1679_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0678_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0678_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7677_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7677_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6676_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6676_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5675_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5675_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4674_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4674_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3673_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3673_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2672_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2672_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1671_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1671_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0670_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0670_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7669_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7669_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6668_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6668_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5667_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5667_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4666_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4666_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3665_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3665_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2664_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2664_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1663_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1663_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0662_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0662_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7661_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7661_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6660_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6660_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5659_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5659_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4658_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4658_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3657_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3657_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2656_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2656_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1655_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1655_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0654_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0654_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7653_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7653_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6652_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6652_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5651_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5651_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4650_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4650_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3649_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3649_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2648_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2648_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1647_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1647_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0646_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0646_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7645_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7645_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6644_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6644_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5643_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5643_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4642_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4642_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3641_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3641_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2640_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2640_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1639_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1639_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0638_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0638_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_7637_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_7637_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_6636_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_6636_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_5635_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_5635_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_4634_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_4634_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_3633_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_3633_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_2632_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_2632_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_1631_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_1631_loc_channel"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="mux_case_0630_loc_channel_U" SOURCE="" URAM="0" VARIABLE="mux_case_0630_loc_channel"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -578,29 +842,6 @@
         </Arg>
     </Args>
     <Interfaces>
-        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
-            <busParams>
-                <busParam busParamName="ASSOCIATED_BUSIF">i_axiu_key:i_axiu_stream_data:i_axiu_user0_data:o_axiu_user0_data</busParam>
-                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_clk">CLK</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_clk</port>
-            </ports>
-        </Interface>
-        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
-            <busParams>
-                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_rst_n">RST</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_rst_n</port>
-            </ports>
-        </Interface>
         <Interface InterfaceName="i_axiu_key" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="80" portPrefix="i_axiu_key_">
             <ports>
                 <port>i_axiu_key_TDATA</port>
@@ -650,6 +891,29 @@
                 <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="o_axiu_user0_data"/>
             </constraints>
         </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">i_axiu_key:i_axiu_stream_data:i_axiu_user0_data:o_axiu_user0_data</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
     </Interfaces>
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
@@ -698,15 +962,28 @@
         <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="pipeline" location="../kernel/yusur_hash_allocation.cpp:17" status="valid" parentFunction="hashmurmur3" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:79" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_key"/>
-        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:80" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_stream_data"/>
-        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:81" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_user0_data"/>
-        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:82" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = o_axiu_user0_data"/>
-        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:83" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="ap_ctrl_none port = return"/>
-        <Pragma type="dataflow" location="../kernel/yusur_hash_allocation.cpp:98" status="warning" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="">
+        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:16" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_key"/>
+        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:17" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_stream_data"/>
+        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:18" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = i_axiu_user0_data"/>
+        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:19" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="axis port = o_axiu_user0_data"/>
+        <Pragma type="interface" location="../kernel/yusur_hash_allocation.cpp:20" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="ap_ctrl_none port = return"/>
+        <Pragma type="array_partition" location="../kernel/yusur_hash_allocation.cpp:31" status="valid" parentFunction="yusur_hash_allocation" variable="A_MATRIX" isDirective="0" options="variable=A_MATRIX complete dim=0"/>
+        <Pragma type="array_partition" location="../kernel/yusur_hash_allocation.cpp:32" status="valid" parentFunction="yusur_hash_allocation" variable="B_MATRIX" isDirective="0" options="variable=B_MATRIX complete dim=0"/>
+        <Pragma type="array_partition" location="../kernel/yusur_hash_allocation.cpp:33" status="valid" parentFunction="yusur_hash_allocation" variable="C_MATRIX" isDirective="0" options="variable=C_MATRIX complete dim=0"/>
+        <Pragma type="array_partition" location="../kernel/yusur_hash_allocation.cpp:37" status="valid" parentFunction="yusur_hash_allocation" variable="HEADER_INFO" isDirective="0" options="variable=HEADER_INFO complete"/>
+        <Pragma type="dataflow" location="../kernel/yusur_hash_allocation.cpp:41" status="warning" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options="">
             <Msg msg_id="214-114" msg_severity="WARNING" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
+            <Msg msg_id="214-169" msg_severity="WARNING" msg_body="There are a total of 5 such instances of non-canonical statements in the dataflow region"/>
         </Pragma>
+        <Pragma type="pipeline" location="../kernel/yusur_hash_allocation.cpp:59" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:65" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:72" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:79" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:91" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../kernel/yusur_hash_allocation.cpp:106" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../kernel/yusur_hash_allocation.cpp:115" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:124" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../kernel/yusur_hash_allocation.cpp:131" status="valid" parentFunction="yusur_hash_allocation" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 

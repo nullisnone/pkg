@@ -3,31 +3,37 @@
 
 <trans_list>
 
-<trans id="39" from="1" to="2">
+<trans id="239" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="40" from="2" to="3">
+<trans id="240" from="2" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="41" from="3" to="4">
+<trans id="241" from="3" to="4">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="42" from="4" to="5">
+<trans id="242" from="4" to="5">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="43" from="5" to="6">
+<trans id="243" from="5" to="6">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="244" from="6" to="7">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -39,119 +45,3089 @@
 <state_list>
 
 <state id="1" st_id="1">
-
-<operation id="7" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="34" bw="64" op_0_bw="64">
-<![CDATA[
-entry:20 %batch_data_V = alloca i64 1
-
-]]></Node>
-<StgValue><ssdm name="batch_data_V"/></StgValue>
-</operation>
-
-<operation id="8" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="35" bw="8" op_0_bw="64">
-<![CDATA[
-entry:21 %keep_data_V = alloca i64 1
-
-]]></Node>
-<StgValue><ssdm name="keep_data_V"/></StgValue>
-</operation>
-
-<operation id="9" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="36" bw="1" op_0_bw="64">
-<![CDATA[
-entry:22 %last_data_V = alloca i64 1
-
-]]></Node>
-<StgValue><ssdm name="last_data_V"/></StgValue>
-</operation>
 </state>
 
 <state id="2" st_id="2">
 
-<operation id="10" st_id="2" stage="2" lat="2">
-<core>FIFO_SRL</core>
+<operation id="8" st_id="2" stage="2" lat="2">
+<core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="1">
+<Node id="38" bw="1088" op_0_bw="1088" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1">
 <![CDATA[
-entry:27 %pkt_len_1_loc_channel = call i32 @Loop_VITIS_LOOP_105_1_proc4, i64 %i_axiu_stream_data_V_data_V, i8 %i_axiu_stream_data_V_keep_V, i8 %i_axiu_stream_data_V_strb_V, i1 %i_axiu_stream_data_V_last_V, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 %i_axiu_user0_data_V_last_V, i64 %batch_data_V, i8 %keep_data_V, i1 %last_data_V
+entry:24 %call_ret = call i1088 @Loop_LOOP_READ_AND_DRAIN_proc4, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 %i_axiu_user0_data_V_last_V
 
 ]]></Node>
-<StgValue><ssdm name="pkt_len_1_loc_channel"/></StgValue>
+<StgValue><ssdm name="call_ret"/></StgValue>
 </operation>
 </state>
 
 <state id="3" st_id="3">
 
-<operation id="11" st_id="3" stage="1" lat="2">
+<operation id="9" st_id="3" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="1088" op_0_bw="1088" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1">
+<![CDATA[
+entry:24 %call_ret = call i1088 @Loop_LOOP_READ_AND_DRAIN_proc4, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 %i_axiu_user0_data_V_last_V
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+
+<operation id="10" st_id="3" stage="1" lat="1">
 <core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="64" op_10_bw="8" op_11_bw="1">
+<Node id="39" bw="8" op_0_bw="1088">
 <![CDATA[
-entry:27 %pkt_len_1_loc_channel = call i32 @Loop_VITIS_LOOP_105_1_proc4, i64 %i_axiu_stream_data_V_data_V, i8 %i_axiu_stream_data_V_keep_V, i8 %i_axiu_stream_data_V_strb_V, i1 %i_axiu_stream_data_V_last_V, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 %i_axiu_user0_data_V_last_V, i64 %batch_data_V, i8 %keep_data_V, i1 %last_data_V
+entry:25 %mux_case_7756_loc_channel = extractvalue i1088 %call_ret
 
 ]]></Node>
-<StgValue><ssdm name="pkt_len_1_loc_channel"/></StgValue>
+<StgValue><ssdm name="mux_case_7756_loc_channel"/></StgValue>
+</operation>
+
+<operation id="11" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="40" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:26 %mux_case_6755_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6755_loc_channel"/></StgValue>
+</operation>
+
+<operation id="12" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="41" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:27 %mux_case_5754_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5754_loc_channel"/></StgValue>
+</operation>
+
+<operation id="13" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="42" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:28 %mux_case_4753_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4753_loc_channel"/></StgValue>
+</operation>
+
+<operation id="14" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="43" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:29 %mux_case_3752_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3752_loc_channel"/></StgValue>
+</operation>
+
+<operation id="15" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="44" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:30 %mux_case_2751_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2751_loc_channel"/></StgValue>
+</operation>
+
+<operation id="16" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="45" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:31 %mux_case_1750_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1750_loc_channel"/></StgValue>
+</operation>
+
+<operation id="17" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="46" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:32 %mux_case_0749_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0749_loc_channel"/></StgValue>
+</operation>
+
+<operation id="18" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="47" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:33 %mux_case_7747_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7747_loc_channel"/></StgValue>
+</operation>
+
+<operation id="19" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="48" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:34 %mux_case_6746_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6746_loc_channel"/></StgValue>
+</operation>
+
+<operation id="20" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="49" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:35 %mux_case_5745_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5745_loc_channel"/></StgValue>
+</operation>
+
+<operation id="21" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="50" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:36 %mux_case_4744_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4744_loc_channel"/></StgValue>
+</operation>
+
+<operation id="22" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="51" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:37 %mux_case_3743_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3743_loc_channel"/></StgValue>
+</operation>
+
+<operation id="23" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="52" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:38 %mux_case_2742_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2742_loc_channel"/></StgValue>
+</operation>
+
+<operation id="24" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="53" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:39 %mux_case_1741_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1741_loc_channel"/></StgValue>
+</operation>
+
+<operation id="25" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="54" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:40 %mux_case_0740_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0740_loc_channel"/></StgValue>
+</operation>
+
+<operation id="26" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="55" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:41 %mux_case_7738_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7738_loc_channel"/></StgValue>
+</operation>
+
+<operation id="27" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="56" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:42 %mux_case_6737_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6737_loc_channel"/></StgValue>
+</operation>
+
+<operation id="28" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="57" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:43 %mux_case_5736_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5736_loc_channel"/></StgValue>
+</operation>
+
+<operation id="29" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:44 %mux_case_4735_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4735_loc_channel"/></StgValue>
+</operation>
+
+<operation id="30" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="59" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:45 %mux_case_3734_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3734_loc_channel"/></StgValue>
+</operation>
+
+<operation id="31" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="60" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:46 %mux_case_2733_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2733_loc_channel"/></StgValue>
+</operation>
+
+<operation id="32" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="61" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:47 %mux_case_1732_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1732_loc_channel"/></StgValue>
+</operation>
+
+<operation id="33" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="62" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:48 %mux_case_0731_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0731_loc_channel"/></StgValue>
+</operation>
+
+<operation id="34" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:49 %mux_case_7729_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7729_loc_channel"/></StgValue>
+</operation>
+
+<operation id="35" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="64" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:50 %mux_case_6728_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6728_loc_channel"/></StgValue>
+</operation>
+
+<operation id="36" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="65" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:51 %mux_case_5727_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5727_loc_channel"/></StgValue>
+</operation>
+
+<operation id="37" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:52 %mux_case_4726_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4726_loc_channel"/></StgValue>
+</operation>
+
+<operation id="38" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:53 %mux_case_3725_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3725_loc_channel"/></StgValue>
+</operation>
+
+<operation id="39" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="68" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:54 %mux_case_2724_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2724_loc_channel"/></StgValue>
+</operation>
+
+<operation id="40" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="69" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:55 %mux_case_1723_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1723_loc_channel"/></StgValue>
+</operation>
+
+<operation id="41" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="70" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:56 %mux_case_0722_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0722_loc_channel"/></StgValue>
+</operation>
+
+<operation id="42" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:57 %mux_case_7720_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7720_loc_channel"/></StgValue>
+</operation>
+
+<operation id="43" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="72" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:58 %mux_case_6719_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6719_loc_channel"/></StgValue>
+</operation>
+
+<operation id="44" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="73" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:59 %mux_case_5718_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5718_loc_channel"/></StgValue>
+</operation>
+
+<operation id="45" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="74" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:60 %mux_case_4717_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4717_loc_channel"/></StgValue>
+</operation>
+
+<operation id="46" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="75" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:61 %mux_case_3716_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3716_loc_channel"/></StgValue>
+</operation>
+
+<operation id="47" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="76" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:62 %mux_case_2715_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2715_loc_channel"/></StgValue>
+</operation>
+
+<operation id="48" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="77" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:63 %mux_case_1714_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1714_loc_channel"/></StgValue>
+</operation>
+
+<operation id="49" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="78" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:64 %mux_case_0713_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0713_loc_channel"/></StgValue>
+</operation>
+
+<operation id="50" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="79" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:65 %mux_case_7711_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7711_loc_channel"/></StgValue>
+</operation>
+
+<operation id="51" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="80" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:66 %mux_case_6710_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6710_loc_channel"/></StgValue>
+</operation>
+
+<operation id="52" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="81" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:67 %mux_case_5709_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5709_loc_channel"/></StgValue>
+</operation>
+
+<operation id="53" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="82" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:68 %mux_case_4708_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4708_loc_channel"/></StgValue>
+</operation>
+
+<operation id="54" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="83" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:69 %mux_case_3707_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3707_loc_channel"/></StgValue>
+</operation>
+
+<operation id="55" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="84" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:70 %mux_case_2706_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2706_loc_channel"/></StgValue>
+</operation>
+
+<operation id="56" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="85" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:71 %mux_case_1705_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1705_loc_channel"/></StgValue>
+</operation>
+
+<operation id="57" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="86" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:72 %mux_case_0704_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0704_loc_channel"/></StgValue>
+</operation>
+
+<operation id="58" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="87" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:73 %mux_case_7702_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7702_loc_channel"/></StgValue>
+</operation>
+
+<operation id="59" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="88" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:74 %mux_case_6701_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6701_loc_channel"/></StgValue>
+</operation>
+
+<operation id="60" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="89" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:75 %mux_case_5700_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5700_loc_channel"/></StgValue>
+</operation>
+
+<operation id="61" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="90" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:76 %mux_case_4699_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4699_loc_channel"/></StgValue>
+</operation>
+
+<operation id="62" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="91" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:77 %mux_case_3698_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3698_loc_channel"/></StgValue>
+</operation>
+
+<operation id="63" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="92" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:78 %mux_case_2697_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2697_loc_channel"/></StgValue>
+</operation>
+
+<operation id="64" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="93" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:79 %mux_case_1696_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1696_loc_channel"/></StgValue>
+</operation>
+
+<operation id="65" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="94" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:80 %mux_case_0695_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0695_loc_channel"/></StgValue>
+</operation>
+
+<operation id="66" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="95" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:81 %mux_case_7693_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7693_loc_channel"/></StgValue>
+</operation>
+
+<operation id="67" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="96" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:82 %mux_case_6692_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6692_loc_channel"/></StgValue>
+</operation>
+
+<operation id="68" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="97" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:83 %mux_case_5691_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5691_loc_channel"/></StgValue>
+</operation>
+
+<operation id="69" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="98" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:84 %mux_case_4690_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4690_loc_channel"/></StgValue>
+</operation>
+
+<operation id="70" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="99" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:85 %mux_case_3689_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3689_loc_channel"/></StgValue>
+</operation>
+
+<operation id="71" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="100" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:86 %mux_case_2688_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2688_loc_channel"/></StgValue>
+</operation>
+
+<operation id="72" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="101" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:87 %mux_case_1687_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1687_loc_channel"/></StgValue>
+</operation>
+
+<operation id="73" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="102" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:88 %mux_case_0686_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0686_loc_channel"/></StgValue>
+</operation>
+
+<operation id="74" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="103" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:89 %mux_case_7628_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7628_loc_channel"/></StgValue>
+</operation>
+
+<operation id="75" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="104" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:90 %mux_case_6627_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6627_loc_channel"/></StgValue>
+</operation>
+
+<operation id="76" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="105" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:91 %mux_case_5626_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5626_loc_channel"/></StgValue>
+</operation>
+
+<operation id="77" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="106" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:92 %mux_case_4625_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4625_loc_channel"/></StgValue>
+</operation>
+
+<operation id="78" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="107" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:93 %mux_case_3624_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3624_loc_channel"/></StgValue>
+</operation>
+
+<operation id="79" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="108" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:94 %mux_case_2623_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2623_loc_channel"/></StgValue>
+</operation>
+
+<operation id="80" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="109" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:95 %mux_case_1622_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1622_loc_channel"/></StgValue>
+</operation>
+
+<operation id="81" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="110" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:96 %mux_case_0621_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0621_loc_channel"/></StgValue>
+</operation>
+
+<operation id="82" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="111" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:97 %mux_case_7619_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7619_loc_channel"/></StgValue>
+</operation>
+
+<operation id="83" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="112" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:98 %mux_case_6618_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6618_loc_channel"/></StgValue>
+</operation>
+
+<operation id="84" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="113" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:99 %mux_case_5617_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5617_loc_channel"/></StgValue>
+</operation>
+
+<operation id="85" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="114" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:100 %mux_case_4616_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4616_loc_channel"/></StgValue>
+</operation>
+
+<operation id="86" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="115" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:101 %mux_case_3615_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3615_loc_channel"/></StgValue>
+</operation>
+
+<operation id="87" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="116" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:102 %mux_case_2614_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2614_loc_channel"/></StgValue>
+</operation>
+
+<operation id="88" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="117" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:103 %mux_case_1613_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1613_loc_channel"/></StgValue>
+</operation>
+
+<operation id="89" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="118" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:104 %mux_case_0612_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0612_loc_channel"/></StgValue>
+</operation>
+
+<operation id="90" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="119" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:105 %mux_case_7610_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7610_loc_channel"/></StgValue>
+</operation>
+
+<operation id="91" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="120" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:106 %mux_case_6609_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6609_loc_channel"/></StgValue>
+</operation>
+
+<operation id="92" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="121" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:107 %mux_case_5608_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5608_loc_channel"/></StgValue>
+</operation>
+
+<operation id="93" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="122" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:108 %mux_case_4607_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4607_loc_channel"/></StgValue>
+</operation>
+
+<operation id="94" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="123" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:109 %mux_case_3606_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3606_loc_channel"/></StgValue>
+</operation>
+
+<operation id="95" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="124" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:110 %mux_case_2605_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2605_loc_channel"/></StgValue>
+</operation>
+
+<operation id="96" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="125" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:111 %mux_case_1604_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1604_loc_channel"/></StgValue>
+</operation>
+
+<operation id="97" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="126" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:112 %mux_case_0603_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0603_loc_channel"/></StgValue>
+</operation>
+
+<operation id="98" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="127" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:113 %mux_case_7601_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7601_loc_channel"/></StgValue>
+</operation>
+
+<operation id="99" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="128" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:114 %mux_case_6600_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6600_loc_channel"/></StgValue>
+</operation>
+
+<operation id="100" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="129" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:115 %mux_case_5599_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5599_loc_channel"/></StgValue>
+</operation>
+
+<operation id="101" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="130" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:116 %mux_case_4598_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4598_loc_channel"/></StgValue>
+</operation>
+
+<operation id="102" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="131" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:117 %mux_case_3597_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3597_loc_channel"/></StgValue>
+</operation>
+
+<operation id="103" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="132" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:118 %mux_case_2596_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2596_loc_channel"/></StgValue>
+</operation>
+
+<operation id="104" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="133" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:119 %mux_case_1595_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1595_loc_channel"/></StgValue>
+</operation>
+
+<operation id="105" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="134" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:120 %mux_case_0594_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0594_loc_channel"/></StgValue>
+</operation>
+
+<operation id="106" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="135" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:121 %mux_case_7592_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7592_loc_channel"/></StgValue>
+</operation>
+
+<operation id="107" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="136" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:122 %mux_case_6591_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6591_loc_channel"/></StgValue>
+</operation>
+
+<operation id="108" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="137" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:123 %mux_case_5590_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5590_loc_channel"/></StgValue>
+</operation>
+
+<operation id="109" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="138" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:124 %mux_case_4589_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4589_loc_channel"/></StgValue>
+</operation>
+
+<operation id="110" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="139" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:125 %mux_case_3588_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3588_loc_channel"/></StgValue>
+</operation>
+
+<operation id="111" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="140" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:126 %mux_case_2587_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2587_loc_channel"/></StgValue>
+</operation>
+
+<operation id="112" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="141" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:127 %mux_case_1586_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1586_loc_channel"/></StgValue>
+</operation>
+
+<operation id="113" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="142" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:128 %mux_case_0585_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0585_loc_channel"/></StgValue>
+</operation>
+
+<operation id="114" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="143" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:129 %mux_case_7583_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7583_loc_channel"/></StgValue>
+</operation>
+
+<operation id="115" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="144" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:130 %mux_case_6582_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6582_loc_channel"/></StgValue>
+</operation>
+
+<operation id="116" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="145" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:131 %mux_case_5581_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5581_loc_channel"/></StgValue>
+</operation>
+
+<operation id="117" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="146" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:132 %mux_case_4580_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4580_loc_channel"/></StgValue>
+</operation>
+
+<operation id="118" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="147" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:133 %mux_case_3579_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3579_loc_channel"/></StgValue>
+</operation>
+
+<operation id="119" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="148" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:134 %mux_case_2578_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2578_loc_channel"/></StgValue>
+</operation>
+
+<operation id="120" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="149" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:135 %mux_case_1577_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1577_loc_channel"/></StgValue>
+</operation>
+
+<operation id="121" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="150" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:136 %mux_case_0576_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0576_loc_channel"/></StgValue>
+</operation>
+
+<operation id="122" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="151" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:137 %mux_case_7574_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7574_loc_channel"/></StgValue>
+</operation>
+
+<operation id="123" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="152" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:138 %mux_case_6573_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6573_loc_channel"/></StgValue>
+</operation>
+
+<operation id="124" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="153" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:139 %mux_case_5572_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5572_loc_channel"/></StgValue>
+</operation>
+
+<operation id="125" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="154" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:140 %mux_case_4571_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4571_loc_channel"/></StgValue>
+</operation>
+
+<operation id="126" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="155" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:141 %mux_case_3570_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3570_loc_channel"/></StgValue>
+</operation>
+
+<operation id="127" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="156" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:142 %mux_case_2569_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2569_loc_channel"/></StgValue>
+</operation>
+
+<operation id="128" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="157" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:143 %mux_case_1568_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1568_loc_channel"/></StgValue>
+</operation>
+
+<operation id="129" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="158" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:144 %mux_case_0567_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0567_loc_channel"/></StgValue>
+</operation>
+
+<operation id="130" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="159" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:145 %mux_case_7_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7_loc_channel"/></StgValue>
+</operation>
+
+<operation id="131" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="160" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:146 %mux_case_6_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6_loc_channel"/></StgValue>
+</operation>
+
+<operation id="132" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="161" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:147 %mux_case_5_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5_loc_channel"/></StgValue>
+</operation>
+
+<operation id="133" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="162" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:148 %mux_case_4_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4_loc_channel"/></StgValue>
+</operation>
+
+<operation id="134" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="163" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:149 %mux_case_3_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3_loc_channel"/></StgValue>
+</operation>
+
+<operation id="135" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="164" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:150 %mux_case_2_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2_loc_channel"/></StgValue>
+</operation>
+
+<operation id="136" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="165" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:151 %mux_case_1_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1_loc_channel"/></StgValue>
+</operation>
+
+<operation id="137" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="166" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:152 %mux_case_0_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0_loc_channel"/></StgValue>
+</operation>
+
+<operation id="138" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="167" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:153 %p_loc_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc_channel"/></StgValue>
+</operation>
+
+<operation id="139" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="168" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:154 %p_loc62_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc62_channel"/></StgValue>
+</operation>
+
+<operation id="140" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="169" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:155 %p_loc63_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc63_channel"/></StgValue>
+</operation>
+
+<operation id="141" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="170" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:156 %p_loc64_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc64_channel"/></StgValue>
+</operation>
+
+<operation id="142" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="171" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:157 %p_loc65_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc65_channel"/></StgValue>
+</operation>
+
+<operation id="143" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="172" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:158 %p_loc66_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc66_channel"/></StgValue>
+</operation>
+
+<operation id="144" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="173" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:159 %p_loc67_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc67_channel"/></StgValue>
+</operation>
+
+<operation id="145" st_id="3" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="174" bw="8" op_0_bw="1088">
+<![CDATA[
+entry:160 %p_loc68_channel = extractvalue i1088 %call_ret
+
+]]></Node>
+<StgValue><ssdm name="p_loc68_channel"/></StgValue>
 </operation>
 </state>
 
 <state id="4" st_id="4">
 
-<operation id="12" st_id="4" stage="2" lat="2">
+<operation id="146" st_id="4" stage="2" lat="2">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="42" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="1" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="0">
+<Node id="175" bw="512" op_0_bw="512" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="8" op_75_bw="8" op_76_bw="8" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="8" op_86_bw="8" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="8" op_91_bw="8" op_92_bw="8" op_93_bw="8" op_94_bw="8" op_95_bw="8" op_96_bw="8" op_97_bw="8" op_98_bw="8" op_99_bw="8" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="8" op_112_bw="8" op_113_bw="8" op_114_bw="8" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="8" op_126_bw="8" op_127_bw="8" op_128_bw="8">
 <![CDATA[
-entry:28 %call_ln0 = call void @Loop_LOOP_FORWARD_proc, i32 %pkt_len_1_loc_channel, i64 %batch_data_V, i8 %keep_data_V, i1 %last_data_V, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 %o_axiu_user0_data_V_last_V
+entry:161 %call_ret1 = call i512 @Loop_LOOP_CALC_proc, i8 %mux_case_0_loc_channel, i8 %mux_case_1_loc_channel, i8 %mux_case_2_loc_channel, i8 %mux_case_3_loc_channel, i8 %mux_case_4_loc_channel, i8 %mux_case_5_loc_channel, i8 %mux_case_6_loc_channel, i8 %mux_case_7_loc_channel, i8 %mux_case_0567_loc_channel, i8 %mux_case_1568_loc_channel, i8 %mux_case_2569_loc_channel, i8 %mux_case_3570_loc_channel, i8 %mux_case_4571_loc_channel, i8 %mux_case_5572_loc_channel, i8 %mux_case_6573_loc_channel, i8 %mux_case_7574_loc_channel, i8 %mux_case_0576_loc_channel, i8 %mux_case_1577_loc_channel, i8 %mux_case_2578_loc_channel, i8 %mux_case_3579_loc_channel, i8 %mux_case_4580_loc_channel, i8 %mux_case_5581_loc_channel, i8 %mux_case_6582_loc_channel, i8 %mux_case_7583_loc_channel, i8 %mux_case_0585_loc_channel, i8 %mux_case_1586_loc_channel, i8 %mux_case_2587_loc_channel, i8 %mux_case_3588_loc_channel, i8 %mux_case_4589_loc_channel, i8 %mux_case_5590_loc_channel, i8 %mux_case_6591_loc_channel, i8 %mux_case_7592_loc_channel, i8 %mux_case_0594_loc_channel, i8 %mux_case_1595_loc_channel, i8 %mux_case_2596_loc_channel, i8 %mux_case_3597_loc_channel, i8 %mux_case_4598_loc_channel, i8 %mux_case_5599_loc_channel, i8 %mux_case_6600_loc_channel, i8 %mux_case_7601_loc_channel, i8 %mux_case_0603_loc_channel, i8 %mux_case_1604_loc_channel, i8 %mux_case_2605_loc_channel, i8 %mux_case_3606_loc_channel, i8 %mux_case_4607_loc_channel, i8 %mux_case_5608_loc_channel, i8 %mux_case_6609_loc_channel, i8 %mux_case_7610_loc_channel, i8 %mux_case_0612_loc_channel, i8 %mux_case_1613_loc_channel, i8 %mux_case_2614_loc_channel, i8 %mux_case_3615_loc_channel, i8 %mux_case_4616_loc_channel, i8 %mux_case_5617_loc_channel, i8 %mux_case_6618_loc_channel, i8 %mux_case_7619_loc_channel, i8 %mux_case_0621_loc_channel, i8 %mux_case_1622_loc_channel, i8 %mux_case_2623_loc_channel, i8 %mux_case_3624_loc_channel, i8 %mux_case_4625_loc_channel, i8 %mux_case_5626_loc_channel, i8 %mux_case_6627_loc_channel, i8 %mux_case_7628_loc_channel, i8 %mux_case_0686_loc_channel, i8 %mux_case_1687_loc_channel, i8 %mux_case_2688_loc_channel, i8 %mux_case_3689_loc_channel, i8 %mux_case_4690_loc_channel, i8 %mux_case_5691_loc_channel, i8 %mux_case_6692_loc_channel, i8 %mux_case_7693_loc_channel, i8 %mux_case_0695_loc_channel, i8 %mux_case_1696_loc_channel, i8 %mux_case_2697_loc_channel, i8 %mux_case_3698_loc_channel, i8 %mux_case_4699_loc_channel, i8 %mux_case_5700_loc_channel, i8 %mux_case_6701_loc_channel, i8 %mux_case_7702_loc_channel, i8 %mux_case_0704_loc_channel, i8 %mux_case_1705_loc_channel, i8 %mux_case_2706_loc_channel, i8 %mux_case_3707_loc_channel, i8 %mux_case_4708_loc_channel, i8 %mux_case_5709_loc_channel, i8 %mux_case_6710_loc_channel, i8 %mux_case_7711_loc_channel, i8 %mux_case_0713_loc_channel, i8 %mux_case_1714_loc_channel, i8 %mux_case_2715_loc_channel, i8 %mux_case_3716_loc_channel, i8 %mux_case_4717_loc_channel, i8 %mux_case_5718_loc_channel, i8 %mux_case_6719_loc_channel, i8 %mux_case_7720_loc_channel, i8 %mux_case_0722_loc_channel, i8 %mux_case_1723_loc_channel, i8 %mux_case_2724_loc_channel, i8 %mux_case_3725_loc_channel, i8 %mux_case_4726_loc_channel, i8 %mux_case_5727_loc_channel, i8 %mux_case_6728_loc_channel, i8 %mux_case_7729_loc_channel, i8 %mux_case_0731_loc_channel, i8 %mux_case_1732_loc_channel, i8 %mux_case_2733_loc_channel, i8 %mux_case_3734_loc_channel, i8 %mux_case_4735_loc_channel, i8 %mux_case_5736_loc_channel, i8 %mux_case_6737_loc_channel, i8 %mux_case_7738_loc_channel, i8 %mux_case_0740_loc_channel, i8 %mux_case_1741_loc_channel, i8 %mux_case_2742_loc_channel, i8 %mux_case_3743_loc_channel, i8 %mux_case_4744_loc_channel, i8 %mux_case_5745_loc_channel, i8 %mux_case_6746_loc_channel, i8 %mux_case_7747_loc_channel, i8 %mux_case_0749_loc_channel, i8 %mux_case_1750_loc_channel, i8 %mux_case_2751_loc_channel, i8 %mux_case_3752_loc_channel, i8 %mux_case_4753_loc_channel, i8 %mux_case_5754_loc_channel, i8 %mux_case_6755_loc_channel, i8 %mux_case_7756_loc_channel
 
 ]]></Node>
-<StgValue><ssdm name="call_ln0"/></StgValue>
+<StgValue><ssdm name="call_ret1"/></StgValue>
 </operation>
 </state>
 
 <state id="5" st_id="5">
 
-<operation id="13" st_id="5" stage="1" lat="2">
+<operation id="147" st_id="5" stage="1" lat="2">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="42" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="64" op_3_bw="8" op_4_bw="1" op_5_bw="64" op_6_bw="8" op_7_bw="8" op_8_bw="1" op_9_bw="0">
+<Node id="175" bw="512" op_0_bw="512" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="8" op_10_bw="8" op_11_bw="8" op_12_bw="8" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="8" op_75_bw="8" op_76_bw="8" op_77_bw="8" op_78_bw="8" op_79_bw="8" op_80_bw="8" op_81_bw="8" op_82_bw="8" op_83_bw="8" op_84_bw="8" op_85_bw="8" op_86_bw="8" op_87_bw="8" op_88_bw="8" op_89_bw="8" op_90_bw="8" op_91_bw="8" op_92_bw="8" op_93_bw="8" op_94_bw="8" op_95_bw="8" op_96_bw="8" op_97_bw="8" op_98_bw="8" op_99_bw="8" op_100_bw="8" op_101_bw="8" op_102_bw="8" op_103_bw="8" op_104_bw="8" op_105_bw="8" op_106_bw="8" op_107_bw="8" op_108_bw="8" op_109_bw="8" op_110_bw="8" op_111_bw="8" op_112_bw="8" op_113_bw="8" op_114_bw="8" op_115_bw="8" op_116_bw="8" op_117_bw="8" op_118_bw="8" op_119_bw="8" op_120_bw="8" op_121_bw="8" op_122_bw="8" op_123_bw="8" op_124_bw="8" op_125_bw="8" op_126_bw="8" op_127_bw="8" op_128_bw="8">
 <![CDATA[
-entry:28 %call_ln0 = call void @Loop_LOOP_FORWARD_proc, i32 %pkt_len_1_loc_channel, i64 %batch_data_V, i8 %keep_data_V, i1 %last_data_V, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 %o_axiu_user0_data_V_last_V
+entry:161 %call_ret1 = call i512 @Loop_LOOP_CALC_proc, i8 %mux_case_0_loc_channel, i8 %mux_case_1_loc_channel, i8 %mux_case_2_loc_channel, i8 %mux_case_3_loc_channel, i8 %mux_case_4_loc_channel, i8 %mux_case_5_loc_channel, i8 %mux_case_6_loc_channel, i8 %mux_case_7_loc_channel, i8 %mux_case_0567_loc_channel, i8 %mux_case_1568_loc_channel, i8 %mux_case_2569_loc_channel, i8 %mux_case_3570_loc_channel, i8 %mux_case_4571_loc_channel, i8 %mux_case_5572_loc_channel, i8 %mux_case_6573_loc_channel, i8 %mux_case_7574_loc_channel, i8 %mux_case_0576_loc_channel, i8 %mux_case_1577_loc_channel, i8 %mux_case_2578_loc_channel, i8 %mux_case_3579_loc_channel, i8 %mux_case_4580_loc_channel, i8 %mux_case_5581_loc_channel, i8 %mux_case_6582_loc_channel, i8 %mux_case_7583_loc_channel, i8 %mux_case_0585_loc_channel, i8 %mux_case_1586_loc_channel, i8 %mux_case_2587_loc_channel, i8 %mux_case_3588_loc_channel, i8 %mux_case_4589_loc_channel, i8 %mux_case_5590_loc_channel, i8 %mux_case_6591_loc_channel, i8 %mux_case_7592_loc_channel, i8 %mux_case_0594_loc_channel, i8 %mux_case_1595_loc_channel, i8 %mux_case_2596_loc_channel, i8 %mux_case_3597_loc_channel, i8 %mux_case_4598_loc_channel, i8 %mux_case_5599_loc_channel, i8 %mux_case_6600_loc_channel, i8 %mux_case_7601_loc_channel, i8 %mux_case_0603_loc_channel, i8 %mux_case_1604_loc_channel, i8 %mux_case_2605_loc_channel, i8 %mux_case_3606_loc_channel, i8 %mux_case_4607_loc_channel, i8 %mux_case_5608_loc_channel, i8 %mux_case_6609_loc_channel, i8 %mux_case_7610_loc_channel, i8 %mux_case_0612_loc_channel, i8 %mux_case_1613_loc_channel, i8 %mux_case_2614_loc_channel, i8 %mux_case_3615_loc_channel, i8 %mux_case_4616_loc_channel, i8 %mux_case_5617_loc_channel, i8 %mux_case_6618_loc_channel, i8 %mux_case_7619_loc_channel, i8 %mux_case_0621_loc_channel, i8 %mux_case_1622_loc_channel, i8 %mux_case_2623_loc_channel, i8 %mux_case_3624_loc_channel, i8 %mux_case_4625_loc_channel, i8 %mux_case_5626_loc_channel, i8 %mux_case_6627_loc_channel, i8 %mux_case_7628_loc_channel, i8 %mux_case_0686_loc_channel, i8 %mux_case_1687_loc_channel, i8 %mux_case_2688_loc_channel, i8 %mux_case_3689_loc_channel, i8 %mux_case_4690_loc_channel, i8 %mux_case_5691_loc_channel, i8 %mux_case_6692_loc_channel, i8 %mux_case_7693_loc_channel, i8 %mux_case_0695_loc_channel, i8 %mux_case_1696_loc_channel, i8 %mux_case_2697_loc_channel, i8 %mux_case_3698_loc_channel, i8 %mux_case_4699_loc_channel, i8 %mux_case_5700_loc_channel, i8 %mux_case_6701_loc_channel, i8 %mux_case_7702_loc_channel, i8 %mux_case_0704_loc_channel, i8 %mux_case_1705_loc_channel, i8 %mux_case_2706_loc_channel, i8 %mux_case_3707_loc_channel, i8 %mux_case_4708_loc_channel, i8 %mux_case_5709_loc_channel, i8 %mux_case_6710_loc_channel, i8 %mux_case_7711_loc_channel, i8 %mux_case_0713_loc_channel, i8 %mux_case_1714_loc_channel, i8 %mux_case_2715_loc_channel, i8 %mux_case_3716_loc_channel, i8 %mux_case_4717_loc_channel, i8 %mux_case_5718_loc_channel, i8 %mux_case_6719_loc_channel, i8 %mux_case_7720_loc_channel, i8 %mux_case_0722_loc_channel, i8 %mux_case_1723_loc_channel, i8 %mux_case_2724_loc_channel, i8 %mux_case_3725_loc_channel, i8 %mux_case_4726_loc_channel, i8 %mux_case_5727_loc_channel, i8 %mux_case_6728_loc_channel, i8 %mux_case_7729_loc_channel, i8 %mux_case_0731_loc_channel, i8 %mux_case_1732_loc_channel, i8 %mux_case_2733_loc_channel, i8 %mux_case_3734_loc_channel, i8 %mux_case_4735_loc_channel, i8 %mux_case_5736_loc_channel, i8 %mux_case_6737_loc_channel, i8 %mux_case_7738_loc_channel, i8 %mux_case_0740_loc_channel, i8 %mux_case_1741_loc_channel, i8 %mux_case_2742_loc_channel, i8 %mux_case_3743_loc_channel, i8 %mux_case_4744_loc_channel, i8 %mux_case_5745_loc_channel, i8 %mux_case_6746_loc_channel, i8 %mux_case_7747_loc_channel, i8 %mux_case_0749_loc_channel, i8 %mux_case_1750_loc_channel, i8 %mux_case_2751_loc_channel, i8 %mux_case_3752_loc_channel, i8 %mux_case_4753_loc_channel, i8 %mux_case_5754_loc_channel, i8 %mux_case_6755_loc_channel, i8 %mux_case_7756_loc_channel
+
+]]></Node>
+<StgValue><ssdm name="call_ret1"/></StgValue>
+</operation>
+
+<operation id="148" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="176" bw="8" op_0_bw="512">
+<![CDATA[
+entry:162 %mux_case_7765_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7765_loc_channel"/></StgValue>
+</operation>
+
+<operation id="149" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="177" bw="8" op_0_bw="512">
+<![CDATA[
+entry:163 %mux_case_6764_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6764_loc_channel"/></StgValue>
+</operation>
+
+<operation id="150" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="178" bw="8" op_0_bw="512">
+<![CDATA[
+entry:164 %mux_case_5763_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5763_loc_channel"/></StgValue>
+</operation>
+
+<operation id="151" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="179" bw="8" op_0_bw="512">
+<![CDATA[
+entry:165 %mux_case_4762_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4762_loc_channel"/></StgValue>
+</operation>
+
+<operation id="152" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="180" bw="8" op_0_bw="512">
+<![CDATA[
+entry:166 %mux_case_3761_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3761_loc_channel"/></StgValue>
+</operation>
+
+<operation id="153" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="181" bw="8" op_0_bw="512">
+<![CDATA[
+entry:167 %mux_case_2760_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2760_loc_channel"/></StgValue>
+</operation>
+
+<operation id="154" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="182" bw="8" op_0_bw="512">
+<![CDATA[
+entry:168 %mux_case_1759_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1759_loc_channel"/></StgValue>
+</operation>
+
+<operation id="155" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="183" bw="8" op_0_bw="512">
+<![CDATA[
+entry:169 %mux_case_0758_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0758_loc_channel"/></StgValue>
+</operation>
+
+<operation id="156" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="184" bw="8" op_0_bw="512">
+<![CDATA[
+entry:170 %mux_case_7685_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7685_loc_channel"/></StgValue>
+</operation>
+
+<operation id="157" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="185" bw="8" op_0_bw="512">
+<![CDATA[
+entry:171 %mux_case_6684_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6684_loc_channel"/></StgValue>
+</operation>
+
+<operation id="158" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="186" bw="8" op_0_bw="512">
+<![CDATA[
+entry:172 %mux_case_5683_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5683_loc_channel"/></StgValue>
+</operation>
+
+<operation id="159" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="187" bw="8" op_0_bw="512">
+<![CDATA[
+entry:173 %mux_case_4682_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4682_loc_channel"/></StgValue>
+</operation>
+
+<operation id="160" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="188" bw="8" op_0_bw="512">
+<![CDATA[
+entry:174 %mux_case_3681_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3681_loc_channel"/></StgValue>
+</operation>
+
+<operation id="161" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="189" bw="8" op_0_bw="512">
+<![CDATA[
+entry:175 %mux_case_2680_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2680_loc_channel"/></StgValue>
+</operation>
+
+<operation id="162" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="190" bw="8" op_0_bw="512">
+<![CDATA[
+entry:176 %mux_case_1679_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1679_loc_channel"/></StgValue>
+</operation>
+
+<operation id="163" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="191" bw="8" op_0_bw="512">
+<![CDATA[
+entry:177 %mux_case_0678_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0678_loc_channel"/></StgValue>
+</operation>
+
+<operation id="164" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="192" bw="8" op_0_bw="512">
+<![CDATA[
+entry:178 %mux_case_7677_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7677_loc_channel"/></StgValue>
+</operation>
+
+<operation id="165" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="193" bw="8" op_0_bw="512">
+<![CDATA[
+entry:179 %mux_case_6676_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6676_loc_channel"/></StgValue>
+</operation>
+
+<operation id="166" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="194" bw="8" op_0_bw="512">
+<![CDATA[
+entry:180 %mux_case_5675_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5675_loc_channel"/></StgValue>
+</operation>
+
+<operation id="167" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="195" bw="8" op_0_bw="512">
+<![CDATA[
+entry:181 %mux_case_4674_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4674_loc_channel"/></StgValue>
+</operation>
+
+<operation id="168" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="196" bw="8" op_0_bw="512">
+<![CDATA[
+entry:182 %mux_case_3673_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3673_loc_channel"/></StgValue>
+</operation>
+
+<operation id="169" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="197" bw="8" op_0_bw="512">
+<![CDATA[
+entry:183 %mux_case_2672_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2672_loc_channel"/></StgValue>
+</operation>
+
+<operation id="170" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="198" bw="8" op_0_bw="512">
+<![CDATA[
+entry:184 %mux_case_1671_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1671_loc_channel"/></StgValue>
+</operation>
+
+<operation id="171" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="199" bw="8" op_0_bw="512">
+<![CDATA[
+entry:185 %mux_case_0670_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0670_loc_channel"/></StgValue>
+</operation>
+
+<operation id="172" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="200" bw="8" op_0_bw="512">
+<![CDATA[
+entry:186 %mux_case_7669_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7669_loc_channel"/></StgValue>
+</operation>
+
+<operation id="173" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="201" bw="8" op_0_bw="512">
+<![CDATA[
+entry:187 %mux_case_6668_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6668_loc_channel"/></StgValue>
+</operation>
+
+<operation id="174" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="202" bw="8" op_0_bw="512">
+<![CDATA[
+entry:188 %mux_case_5667_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5667_loc_channel"/></StgValue>
+</operation>
+
+<operation id="175" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="203" bw="8" op_0_bw="512">
+<![CDATA[
+entry:189 %mux_case_4666_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4666_loc_channel"/></StgValue>
+</operation>
+
+<operation id="176" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="204" bw="8" op_0_bw="512">
+<![CDATA[
+entry:190 %mux_case_3665_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3665_loc_channel"/></StgValue>
+</operation>
+
+<operation id="177" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="205" bw="8" op_0_bw="512">
+<![CDATA[
+entry:191 %mux_case_2664_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2664_loc_channel"/></StgValue>
+</operation>
+
+<operation id="178" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="206" bw="8" op_0_bw="512">
+<![CDATA[
+entry:192 %mux_case_1663_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1663_loc_channel"/></StgValue>
+</operation>
+
+<operation id="179" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="207" bw="8" op_0_bw="512">
+<![CDATA[
+entry:193 %mux_case_0662_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0662_loc_channel"/></StgValue>
+</operation>
+
+<operation id="180" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="208" bw="8" op_0_bw="512">
+<![CDATA[
+entry:194 %mux_case_7661_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7661_loc_channel"/></StgValue>
+</operation>
+
+<operation id="181" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="209" bw="8" op_0_bw="512">
+<![CDATA[
+entry:195 %mux_case_6660_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6660_loc_channel"/></StgValue>
+</operation>
+
+<operation id="182" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="210" bw="8" op_0_bw="512">
+<![CDATA[
+entry:196 %mux_case_5659_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5659_loc_channel"/></StgValue>
+</operation>
+
+<operation id="183" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="211" bw="8" op_0_bw="512">
+<![CDATA[
+entry:197 %mux_case_4658_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4658_loc_channel"/></StgValue>
+</operation>
+
+<operation id="184" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="212" bw="8" op_0_bw="512">
+<![CDATA[
+entry:198 %mux_case_3657_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3657_loc_channel"/></StgValue>
+</operation>
+
+<operation id="185" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="213" bw="8" op_0_bw="512">
+<![CDATA[
+entry:199 %mux_case_2656_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2656_loc_channel"/></StgValue>
+</operation>
+
+<operation id="186" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="214" bw="8" op_0_bw="512">
+<![CDATA[
+entry:200 %mux_case_1655_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1655_loc_channel"/></StgValue>
+</operation>
+
+<operation id="187" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="215" bw="8" op_0_bw="512">
+<![CDATA[
+entry:201 %mux_case_0654_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0654_loc_channel"/></StgValue>
+</operation>
+
+<operation id="188" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="216" bw="8" op_0_bw="512">
+<![CDATA[
+entry:202 %mux_case_7653_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7653_loc_channel"/></StgValue>
+</operation>
+
+<operation id="189" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="217" bw="8" op_0_bw="512">
+<![CDATA[
+entry:203 %mux_case_6652_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6652_loc_channel"/></StgValue>
+</operation>
+
+<operation id="190" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="218" bw="8" op_0_bw="512">
+<![CDATA[
+entry:204 %mux_case_5651_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5651_loc_channel"/></StgValue>
+</operation>
+
+<operation id="191" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="219" bw="8" op_0_bw="512">
+<![CDATA[
+entry:205 %mux_case_4650_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4650_loc_channel"/></StgValue>
+</operation>
+
+<operation id="192" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="220" bw="8" op_0_bw="512">
+<![CDATA[
+entry:206 %mux_case_3649_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3649_loc_channel"/></StgValue>
+</operation>
+
+<operation id="193" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="221" bw="8" op_0_bw="512">
+<![CDATA[
+entry:207 %mux_case_2648_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2648_loc_channel"/></StgValue>
+</operation>
+
+<operation id="194" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="222" bw="8" op_0_bw="512">
+<![CDATA[
+entry:208 %mux_case_1647_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1647_loc_channel"/></StgValue>
+</operation>
+
+<operation id="195" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="223" bw="8" op_0_bw="512">
+<![CDATA[
+entry:209 %mux_case_0646_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0646_loc_channel"/></StgValue>
+</operation>
+
+<operation id="196" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="224" bw="8" op_0_bw="512">
+<![CDATA[
+entry:210 %mux_case_7645_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7645_loc_channel"/></StgValue>
+</operation>
+
+<operation id="197" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="225" bw="8" op_0_bw="512">
+<![CDATA[
+entry:211 %mux_case_6644_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6644_loc_channel"/></StgValue>
+</operation>
+
+<operation id="198" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="226" bw="8" op_0_bw="512">
+<![CDATA[
+entry:212 %mux_case_5643_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5643_loc_channel"/></StgValue>
+</operation>
+
+<operation id="199" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="227" bw="8" op_0_bw="512">
+<![CDATA[
+entry:213 %mux_case_4642_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4642_loc_channel"/></StgValue>
+</operation>
+
+<operation id="200" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="228" bw="8" op_0_bw="512">
+<![CDATA[
+entry:214 %mux_case_3641_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3641_loc_channel"/></StgValue>
+</operation>
+
+<operation id="201" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="229" bw="8" op_0_bw="512">
+<![CDATA[
+entry:215 %mux_case_2640_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2640_loc_channel"/></StgValue>
+</operation>
+
+<operation id="202" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="230" bw="8" op_0_bw="512">
+<![CDATA[
+entry:216 %mux_case_1639_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1639_loc_channel"/></StgValue>
+</operation>
+
+<operation id="203" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="231" bw="8" op_0_bw="512">
+<![CDATA[
+entry:217 %mux_case_0638_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0638_loc_channel"/></StgValue>
+</operation>
+
+<operation id="204" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="232" bw="8" op_0_bw="512">
+<![CDATA[
+entry:218 %mux_case_7637_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_7637_loc_channel"/></StgValue>
+</operation>
+
+<operation id="205" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="233" bw="8" op_0_bw="512">
+<![CDATA[
+entry:219 %mux_case_6636_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_6636_loc_channel"/></StgValue>
+</operation>
+
+<operation id="206" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="234" bw="8" op_0_bw="512">
+<![CDATA[
+entry:220 %mux_case_5635_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_5635_loc_channel"/></StgValue>
+</operation>
+
+<operation id="207" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="235" bw="8" op_0_bw="512">
+<![CDATA[
+entry:221 %mux_case_4634_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_4634_loc_channel"/></StgValue>
+</operation>
+
+<operation id="208" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="236" bw="8" op_0_bw="512">
+<![CDATA[
+entry:222 %mux_case_3633_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_3633_loc_channel"/></StgValue>
+</operation>
+
+<operation id="209" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="237" bw="8" op_0_bw="512">
+<![CDATA[
+entry:223 %mux_case_2632_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_2632_loc_channel"/></StgValue>
+</operation>
+
+<operation id="210" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="238" bw="8" op_0_bw="512">
+<![CDATA[
+entry:224 %mux_case_1631_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_1631_loc_channel"/></StgValue>
+</operation>
+
+<operation id="211" st_id="5" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="239" bw="8" op_0_bw="512">
+<![CDATA[
+entry:225 %mux_case_0630_loc_channel = extractvalue i512 %call_ret1
+
+]]></Node>
+<StgValue><ssdm name="mux_case_0630_loc_channel"/></StgValue>
+</operation>
+
+<operation id="212" st_id="5" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="240" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="8" op_75_bw="8" op_76_bw="8">
+<![CDATA[
+entry:226 %call_ln0 = call void @Loop_LOOP_OUTPUT_ALL_proc, i8 %p_loc_channel, i8 %p_loc62_channel, i8 %p_loc63_channel, i8 %p_loc64_channel, i8 %p_loc65_channel, i8 %p_loc66_channel, i8 %p_loc67_channel, i8 %p_loc68_channel, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 %o_axiu_user0_data_V_last_V, i8 %mux_case_7637_loc_channel, i8 %mux_case_0630_loc_channel, i8 %mux_case_1631_loc_channel, i8 %mux_case_2632_loc_channel, i8 %mux_case_3633_loc_channel, i8 %mux_case_4634_loc_channel, i8 %mux_case_5635_loc_channel, i8 %mux_case_6636_loc_channel, i8 %mux_case_7645_loc_channel, i8 %mux_case_0638_loc_channel, i8 %mux_case_1639_loc_channel, i8 %mux_case_2640_loc_channel, i8 %mux_case_3641_loc_channel, i8 %mux_case_4642_loc_channel, i8 %mux_case_5643_loc_channel, i8 %mux_case_6644_loc_channel, i8 %mux_case_7653_loc_channel, i8 %mux_case_0646_loc_channel, i8 %mux_case_1647_loc_channel, i8 %mux_case_2648_loc_channel, i8 %mux_case_3649_loc_channel, i8 %mux_case_4650_loc_channel, i8 %mux_case_5651_loc_channel, i8 %mux_case_6652_loc_channel, i8 %mux_case_7661_loc_channel, i8 %mux_case_0654_loc_channel, i8 %mux_case_1655_loc_channel, i8 %mux_case_2656_loc_channel, i8 %mux_case_3657_loc_channel, i8 %mux_case_4658_loc_channel, i8 %mux_case_5659_loc_channel, i8 %mux_case_6660_loc_channel, i8 %mux_case_7669_loc_channel, i8 %mux_case_0662_loc_channel, i8 %mux_case_1663_loc_channel, i8 %mux_case_2664_loc_channel, i8 %mux_case_3665_loc_channel, i8 %mux_case_4666_loc_channel, i8 %mux_case_5667_loc_channel, i8 %mux_case_6668_loc_channel, i8 %mux_case_7677_loc_channel, i8 %mux_case_0670_loc_channel, i8 %mux_case_1671_loc_channel, i8 %mux_case_2672_loc_channel, i8 %mux_case_3673_loc_channel, i8 %mux_case_4674_loc_channel, i8 %mux_case_5675_loc_channel, i8 %mux_case_6676_loc_channel, i8 %mux_case_7685_loc_channel, i8 %mux_case_0678_loc_channel, i8 %mux_case_1679_loc_channel, i8 %mux_case_2680_loc_channel, i8 %mux_case_3681_loc_channel, i8 %mux_case_4682_loc_channel, i8 %mux_case_5683_loc_channel, i8 %mux_case_6684_loc_channel, i8 %mux_case_7765_loc_channel, i8 %mux_case_0758_loc_channel, i8 %mux_case_1759_loc_channel, i8 %mux_case_2760_loc_channel, i8 %mux_case_3761_loc_channel, i8 %mux_case_4762_loc_channel, i8 %mux_case_5763_loc_channel, i8 %mux_case_6764_loc_channel
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>
@@ -160,7 +3136,25 @@ entry:28 %call_ln0 = call void @Loop_LOOP_FORWARD_proc, i32 %pkt_len_1_loc_chann
 
 <state id="6" st_id="6">
 
-<operation id="14" st_id="6" stage="1" lat="1">
+<operation id="213" st_id="6" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="240" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="8" op_4_bw="8" op_5_bw="8" op_6_bw="8" op_7_bw="8" op_8_bw="8" op_9_bw="64" op_10_bw="8" op_11_bw="8" op_12_bw="1" op_13_bw="8" op_14_bw="8" op_15_bw="8" op_16_bw="8" op_17_bw="8" op_18_bw="8" op_19_bw="8" op_20_bw="8" op_21_bw="8" op_22_bw="8" op_23_bw="8" op_24_bw="8" op_25_bw="8" op_26_bw="8" op_27_bw="8" op_28_bw="8" op_29_bw="8" op_30_bw="8" op_31_bw="8" op_32_bw="8" op_33_bw="8" op_34_bw="8" op_35_bw="8" op_36_bw="8" op_37_bw="8" op_38_bw="8" op_39_bw="8" op_40_bw="8" op_41_bw="8" op_42_bw="8" op_43_bw="8" op_44_bw="8" op_45_bw="8" op_46_bw="8" op_47_bw="8" op_48_bw="8" op_49_bw="8" op_50_bw="8" op_51_bw="8" op_52_bw="8" op_53_bw="8" op_54_bw="8" op_55_bw="8" op_56_bw="8" op_57_bw="8" op_58_bw="8" op_59_bw="8" op_60_bw="8" op_61_bw="8" op_62_bw="8" op_63_bw="8" op_64_bw="8" op_65_bw="8" op_66_bw="8" op_67_bw="8" op_68_bw="8" op_69_bw="8" op_70_bw="8" op_71_bw="8" op_72_bw="8" op_73_bw="8" op_74_bw="8" op_75_bw="8" op_76_bw="8">
+<![CDATA[
+entry:226 %call_ln0 = call void @Loop_LOOP_OUTPUT_ALL_proc, i8 %p_loc_channel, i8 %p_loc62_channel, i8 %p_loc63_channel, i8 %p_loc64_channel, i8 %p_loc65_channel, i8 %p_loc66_channel, i8 %p_loc67_channel, i8 %p_loc68_channel, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 %o_axiu_user0_data_V_last_V, i8 %mux_case_7637_loc_channel, i8 %mux_case_0630_loc_channel, i8 %mux_case_1631_loc_channel, i8 %mux_case_2632_loc_channel, i8 %mux_case_3633_loc_channel, i8 %mux_case_4634_loc_channel, i8 %mux_case_5635_loc_channel, i8 %mux_case_6636_loc_channel, i8 %mux_case_7645_loc_channel, i8 %mux_case_0638_loc_channel, i8 %mux_case_1639_loc_channel, i8 %mux_case_2640_loc_channel, i8 %mux_case_3641_loc_channel, i8 %mux_case_4642_loc_channel, i8 %mux_case_5643_loc_channel, i8 %mux_case_6644_loc_channel, i8 %mux_case_7653_loc_channel, i8 %mux_case_0646_loc_channel, i8 %mux_case_1647_loc_channel, i8 %mux_case_2648_loc_channel, i8 %mux_case_3649_loc_channel, i8 %mux_case_4650_loc_channel, i8 %mux_case_5651_loc_channel, i8 %mux_case_6652_loc_channel, i8 %mux_case_7661_loc_channel, i8 %mux_case_0654_loc_channel, i8 %mux_case_1655_loc_channel, i8 %mux_case_2656_loc_channel, i8 %mux_case_3657_loc_channel, i8 %mux_case_4658_loc_channel, i8 %mux_case_5659_loc_channel, i8 %mux_case_6660_loc_channel, i8 %mux_case_7669_loc_channel, i8 %mux_case_0662_loc_channel, i8 %mux_case_1663_loc_channel, i8 %mux_case_2664_loc_channel, i8 %mux_case_3665_loc_channel, i8 %mux_case_4666_loc_channel, i8 %mux_case_5667_loc_channel, i8 %mux_case_6668_loc_channel, i8 %mux_case_7677_loc_channel, i8 %mux_case_0670_loc_channel, i8 %mux_case_1671_loc_channel, i8 %mux_case_2672_loc_channel, i8 %mux_case_3673_loc_channel, i8 %mux_case_4674_loc_channel, i8 %mux_case_5675_loc_channel, i8 %mux_case_6676_loc_channel, i8 %mux_case_7685_loc_channel, i8 %mux_case_0678_loc_channel, i8 %mux_case_1679_loc_channel, i8 %mux_case_2680_loc_channel, i8 %mux_case_3681_loc_channel, i8 %mux_case_4682_loc_channel, i8 %mux_case_5683_loc_channel, i8 %mux_case_6684_loc_channel, i8 %mux_case_7765_loc_channel, i8 %mux_case_0758_loc_channel, i8 %mux_case_1759_loc_channel, i8 %mux_case_2760_loc_channel, i8 %mux_case_3761_loc_channel, i8 %mux_case_4762_loc_channel, i8 %mux_case_5763_loc_channel, i8 %mux_case_6764_loc_channel
+
+]]></Node>
+<StgValue><ssdm name="call_ln0"/></StgValue>
+</operation>
+</state>
+
+<state id="7" st_id="7">
+
+<operation id="214" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -169,13 +3163,13 @@ entry:28 %call_ln0 = call void @Loop_LOOP_FORWARD_proc, i32 %pkt_len_1_loc_chann
 
 <Node id="14" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="0">
 <![CDATA[
-entry:0 %specdataflowpipeline_ln98 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_1
+entry:0 %specdataflowpipeline_ln41 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_1
 
 ]]></Node>
-<StgValue><ssdm name="specdataflowpipeline_ln98"/></StgValue>
+<StgValue><ssdm name="specdataflowpipeline_ln41"/></StgValue>
 </operation>
 
-<operation id="15" st_id="6" stage="1" lat="1">
+<operation id="215" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -184,13 +3178,13 @@ entry:0 %specdataflowpipeline_ln98 = specdataflowpipeline void @_ssdm_op_SpecDat
 
 <Node id="15" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-entry:1 %spectopmodule_ln73 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_5
+entry:1 %spectopmodule_ln10 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_5
 
 ]]></Node>
-<StgValue><ssdm name="spectopmodule_ln73"/></StgValue>
+<StgValue><ssdm name="spectopmodule_ln10"/></StgValue>
 </operation>
 
-<operation id="16" st_id="6" stage="1" lat="1">
+<operation id="216" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -199,13 +3193,13 @@ entry:1 %spectopmodule_ln73 = spectopmodule void @_ssdm_op_SpecTopModule, void @
 
 <Node id="16" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:2 %specinterface_ln73 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_6, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
+entry:2 %specinterface_ln10 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_6, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln73"/></StgValue>
+<StgValue><ssdm name="specinterface_ln10"/></StgValue>
 </operation>
 
-<operation id="17" st_id="6" stage="1" lat="1">
+<operation id="217" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -220,7 +3214,7 @@ entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i80 %i_
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="18" st_id="6" stage="1" lat="1">
+<operation id="218" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -235,7 +3229,7 @@ entry:4 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i80 %i_axiu_k
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="19" st_id="6" stage="1" lat="1">
+<operation id="219" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -250,7 +3244,7 @@ entry:5 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %i_
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="20" st_id="6" stage="1" lat="1">
+<operation id="220" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -265,7 +3259,7 @@ entry:6 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %i_axiu_s
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="21" st_id="6" stage="1" lat="1">
+<operation id="221" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -280,7 +3274,7 @@ entry:7 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %i_axiu_st
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="22" st_id="6" stage="1" lat="1">
+<operation id="222" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -295,7 +3289,7 @@ entry:8 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %i_axiu_st
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="23" st_id="6" stage="1" lat="1">
+<operation id="223" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -310,7 +3304,7 @@ entry:9 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %i_axiu_st
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="24" st_id="6" stage="1" lat="1">
+<operation id="224" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -325,7 +3319,7 @@ entry:10 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %i
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="25" st_id="6" stage="1" lat="1">
+<operation id="225" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -340,7 +3334,7 @@ entry:11 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %i_axiu_
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="26" st_id="6" stage="1" lat="1">
+<operation id="226" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -355,7 +3349,7 @@ entry:12 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %i_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="27" st_id="6" stage="1" lat="1">
+<operation id="227" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -370,7 +3364,7 @@ entry:13 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %i_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="28" st_id="6" stage="1" lat="1">
+<operation id="228" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -385,7 +3379,7 @@ entry:14 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %i_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="29" st_id="6" stage="1" lat="1">
+<operation id="229" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -400,7 +3394,7 @@ entry:15 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %o
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="30" st_id="6" stage="1" lat="1">
+<operation id="230" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -415,7 +3409,7 @@ entry:16 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %o_axiu_
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="31" st_id="6" stage="1" lat="1">
+<operation id="231" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -430,7 +3424,7 @@ entry:17 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %o_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="32" st_id="6" stage="1" lat="1">
+<operation id="232" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -445,7 +3439,7 @@ entry:18 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %o_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="33" st_id="6" stage="1" lat="1">
+<operation id="233" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -460,79 +3454,79 @@ entry:19 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %o_axiu_u
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="34" st_id="6" stage="1" lat="1">
+<operation id="234" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
+<Node id="34" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
 <![CDATA[
-entry:23 %specaxissidechannel_ln105 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 0, i1 %o_axiu_user0_data_V_last_V, i1 0, i1 0, void @empty_2
+entry:20 %specaxissidechannel_ln44 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %o_axiu_user0_data_V_data_V, i8 %o_axiu_user0_data_V_keep_V, i8 %o_axiu_user0_data_V_strb_V, i1 0, i1 %o_axiu_user0_data_V_last_V, i1 0, i1 0, void @empty_2
 
 ]]></Node>
-<StgValue><ssdm name="specaxissidechannel_ln105"/></StgValue>
+<StgValue><ssdm name="specaxissidechannel_ln44"/></StgValue>
 </operation>
 
-<operation id="35" st_id="6" stage="1" lat="1">
+<operation id="235" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
 <![CDATA[
-entry:24 %specaxissidechannel_ln105 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 0, i1 %i_axiu_user0_data_V_last_V, i1 0, i1 0, void @empty_3
+entry:21 %specaxissidechannel_ln44 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %i_axiu_stream_data_V_data_V, i8 %i_axiu_stream_data_V_keep_V, i8 %i_axiu_stream_data_V_strb_V, i1 0, i1 %i_axiu_stream_data_V_last_V, i1 0, i1 0, void @empty_3
 
 ]]></Node>
-<StgValue><ssdm name="specaxissidechannel_ln105"/></StgValue>
+<StgValue><ssdm name="specaxissidechannel_ln44"/></StgValue>
 </operation>
 
-<operation id="36" st_id="6" stage="1" lat="1">
+<operation id="236" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
+<Node id="36" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="0">
 <![CDATA[
-entry:25 %specaxissidechannel_ln105 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %i_axiu_stream_data_V_data_V, i8 %i_axiu_stream_data_V_keep_V, i8 %i_axiu_stream_data_V_strb_V, i1 0, i1 %i_axiu_stream_data_V_last_V, i1 0, i1 0, void @empty_4
+entry:22 %specaxissidechannel_ln44 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i64 %i_axiu_user0_data_V_data_V, i8 %i_axiu_user0_data_V_keep_V, i8 %i_axiu_user0_data_V_strb_V, i1 0, i1 %i_axiu_user0_data_V_last_V, i1 0, i1 0, void @empty_4
 
 ]]></Node>
-<StgValue><ssdm name="specaxissidechannel_ln105"/></StgValue>
+<StgValue><ssdm name="specaxissidechannel_ln44"/></StgValue>
 </operation>
 
-<operation id="37" st_id="6" stage="1" lat="1">
+<operation id="237" st_id="7" stage="1" lat="1">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="0" op_0_bw="0" op_1_bw="80">
+<Node id="37" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="8" op_3_bw="8" op_4_bw="1" op_5_bw="80">
 <![CDATA[
-entry:26 %call_ln0 = call void @Block_entry5_proc3, i80 %i_axiu_key
+entry:23 %call_ln0 = call void @Block_entry60_proc3, i64 %i_axiu_stream_data_V_data_V, i8 %i_axiu_stream_data_V_keep_V, i8 %i_axiu_stream_data_V_strb_V, i1 %i_axiu_stream_data_V_last_V, i80 %i_axiu_key
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>
 </operation>
 
-<operation id="38" st_id="6" stage="1" lat="1">
+<operation id="238" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="0">
+<Node id="241" bw="0">
 <![CDATA[
-entry:29 %ret_ln128 = ret
+entry:227 %ret_ln137 = ret
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln128"/></StgValue>
+<StgValue><ssdm name="ret_ln137"/></StgValue>
 </operation>
 </state>
 </state_list>

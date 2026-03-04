@@ -3,5 +3,5 @@
 	<Message severity="INFO" prefix="[IMPL 213-8]" key="IMPL_8_1776" tag="" content="Exporting RTL as a Vivado IP." resolution=""/>
 	<Message severity="INFO" prefix="[IMPL 213-8]" key="IMPL_8_1773" tag="" content="Starting RTL evaluation using Vivado ..." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-802]" key="HLS 200-802" tag="" content="Generated output file /root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/ip_repo/yusur_hash_allocation.zip" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command export_design CPU user time: 93.87 seconds. CPU system time: 9.85 seconds. Elapsed time: 137.29 seconds; current allocated memory: 7.711 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command export_design CPU user time: 126.85 seconds. CPU system time: 10.78 seconds. Elapsed time: 229.51 seconds; current allocated memory: 9.844 MB." resolution=""/>
 </Messages>
