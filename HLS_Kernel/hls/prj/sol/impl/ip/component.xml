@@ -324,7 +324,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>fe6e736b</spirit:value>
+            <spirit:value>1a25177a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -340,7 +340,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0156544f</spirit:value>
+            <spirit:value>81970aea</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -356,7 +356,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bd5c51fe</spirit:value>
+            <spirit:value>aec037bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -372,7 +372,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8b45a0c0</spirit:value>
+            <spirit:value>e0a67320</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -808,7 +808,11 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_entry60_proc3.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_entry688_proc3.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_while_end_proc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -816,7 +820,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w8_d3_S.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w16_d2_S.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w64_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -836,10 +844,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_Loop_LOOP_CALC_proc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/yusur_hash_allocation_Loop_LOOP_OUTPUT_ALL_proc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -848,11 +852,19 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_mul_8s_8s_8_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mac_muladd_8ns_8ns_16ns_16_4_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_83_8_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mul_8ns_8ns_16_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_21_16_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_83_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -867,7 +879,12 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_entry60_proc3.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_entry688_proc3.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_Block_while_end_proc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -877,7 +894,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w8_d3_S.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w16_d2_S.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_fifo_w64_d2_S.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -902,11 +924,6 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_Loop_LOOP_CALC_proc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/yusur_hash_allocation_Loop_LOOP_OUTPUT_ALL_proc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -917,12 +934,22 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_mul_8s_8s_8_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mac_muladd_8ns_8ns_16ns_16_4_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_83_8_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mul_8ns_8ns_16_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_21_16_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/yusur_hash_allocation_mux_83_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -945,7 +972,11 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_entry60_proc3.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_entry688_proc3.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_while_end_proc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -953,15 +984,15 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w8_d3_S.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w16_d2_S.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w64_d2_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/yusur_hash_allocation_flow_control_loop_pipe.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_Loop_LOOP_CALC_proc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -973,11 +1004,19 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_mul_8s_8s_8_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mac_muladd_8ns_8ns_16ns_16_4_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_83_8_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mul_8ns_8ns_16_1_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_21_16_1_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_83_16_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -987,13 +1026,18 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/yusur_hash_allocation.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_29b09609</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_936399f3</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_entry60_proc3.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_entry688_proc3.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_Block_while_end_proc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1003,17 +1047,17 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w8_d3_S.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w16_d2_S.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_fifo_w64_d2_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/yusur_hash_allocation_flow_control_loop_pipe.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_Loop_LOOP_CALC_proc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1028,12 +1072,22 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_mul_8s_8s_8_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mac_muladd_8ns_8ns_16ns_16_4_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_83_8_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mul_8ns_8ns_16_1_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_21_16_1_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/yusur_hash_allocation_mux_83_16_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1117,8 +1171,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Yusur_hash_allocation</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2114506567</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2026-03-04T10:08:12Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2114507049</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2026-03-04T18:09:52Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -1127,7 +1181,7 @@
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0af7ddde"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="beae5cf5"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="04aa32bf"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="aa338000"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="82b55945"/>
     </xilinx:packagingInfo>

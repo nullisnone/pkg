@@ -43344,7 +43344,7 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
     uint8_t A_MATRIX[8][8];
     uint8_t B_MATRIX[8][8];
-    uint8_t C_MATRIX[8][8];
+    uint16_t C_MATRIX[8][8];
 
 
 #pragma HLS ARRAY_PARTITION variable=A_MATRIX complete dim=0
@@ -43421,34 +43421,48 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
     LOOP_CALC:
     for(int i=0; i<8; i++) {
-            VITIS_LOOP_105_5: for(int j=0; j<8; j++) {
-#pragma HLS PIPELINE
-
- C_MATRIX[i][j] = A_MATRIX[i][j] * B_MATRIX[i][j];
+#pragma HLS UNROLL
+ VITIS_LOOP_106_5: for(int j=0; j<8; j++) {
+#pragma HLS UNROLL
+ uint16_t sum = 0;
+            VITIS_LOOP_109_6: for(int k=0; k<8; k++) {
+#pragma HLS UNROLL
+ sum += A_MATRIX[i][k] * B_MATRIX[k][j];
             }
+            C_MATRIX[i][j] = sum;
         }
+    }
 
 
     LOOP_OUTPUT_ALL:
-    for(int i=0; i<9; i++) {
+    for(int i=0; i<17; i++) {
 #pragma HLS PIPELINE
  ap_axiu<64, 0, 0, 0> out_val;
         out_val.data = 0;
         out_val.keep = 0xFF;
-        out_val.last = (i == 8) ? 1 : 0;
+        out_val.last = (i == 16) ? 1 : 0;
 
         if (i == 0) {
 
-            VITIS_LOOP_123_6: for (int k = 0; k < 8; k++) {
+            VITIS_LOOP_128_7: for (int k = 0; k < 8; k++) {
 #pragma HLS UNROLL
  out_val.data |= ((ap_uint<64>)HEADER_INFO[k]) << (k * 8);
             }
         } else {
 
-            int row_idx = i - 1;
-            VITIS_LOOP_130_7: for(int j=0; j<8; j++) {
+
+
+
+            int matrix_idx = i - 1;
+            int row_idx = matrix_idx / 2;
+            int part_idx = matrix_idx % 2;
+
+            int col_offset = part_idx * 4;
+
+            VITIS_LOOP_143_8: for(int j=0; j<4; j++) {
 #pragma HLS UNROLL
- out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][j]) << (j * 8);
+
+ out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][col_offset + j]) << (j * 16);
             }
         }
         o_axiu_user0_data.write(out_val);

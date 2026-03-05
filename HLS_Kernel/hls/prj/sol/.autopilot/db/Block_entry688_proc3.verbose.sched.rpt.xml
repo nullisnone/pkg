@@ -1,7 +1,7 @@
 <profile>
 
-<section name = "Vitis HLS Report for 'Loop_LOOP_CALC_proc'" level="0">
-<item name = "Date">Wed Mar  4 18:07:25 2026
+<section name = "Vitis HLS Report for 'Block_entry688_proc3'" level="0">
+<item name = "Date">Thu Mar  5 02:08:54 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.50 ns, 2.720 ns, 0.94 ns</column>
+<column name="ap_clk">3.50 ns, 0 ns, 0.94 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">66, 66, 0.231 us, 0.231 us, 66, 66, no</column>
+<column name="">0, 0, 0 ns, 0 ns, 0, 0, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,6 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- LOOP_CALC_VITIS_LOOP_105_5">64, 64, 2, 1, 1, 64, yes</column>
 </table>
 </item>
 </section>

@@ -181,7 +181,7 @@ def run_test_loop(input_file, output_file):
                         print(f"Received {result} bytes")
                         data = buf[:result]
                         
-                        if len(data) >= 72:
+                        if len(data) >= 136:
                             # 1. Print Header (8 bytes)
                             header = data[:8]
                             header_str = ",".join(str(b) for b in header)
@@ -192,13 +192,21 @@ def run_test_loop(input_file, output_file):
                             print()
                             f_out.write("\n")
                             
-                            # 3. Print Matrix (64 bytes, 8 lines)
-                            matrix_data = data[8:72]
-                            for i in range(8):
-                                row = matrix_data[i*8 : (i+1)*8]
-                                row_str = ",".join(str(b) for b in row)
-                                print(row_str)
-                                f_out.write(row_str + "\n")
+                            # 3. Print Matrix (128 bytes, 8x8 uint16)
+                            matrix_bytes = data[8:136]
+                            # Unpack 64 unsigned shorts (Little Endian)
+                            try:
+                                matrix_vals = struct.unpack('<64H', matrix_bytes)
+                                for i in range(8):
+                                    row_vals = matrix_vals[i*8 : (i+1)*8]
+                                    row_str = ",".join(str(val) for val in row_vals)
+                                    print(row_str)
+                                    f_out.write(row_str + "\n")
+                            except struct.error as e:
+                                print(f"Error unpacking matrix: {e}")
+                                raw_str = ",".join(str(b) for b in data)
+                                print(raw_str)
+                                f_out.write(raw_str + "\n")
                         else:
                             # Fallback for unexpected length
                             raw_str = ",".join(str(b) for b in data)

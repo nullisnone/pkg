@@ -1,4 +1,4 @@
-set moduleName Block_entry60_proc3
+set moduleName Block_entry688_proc3
 set isTopModule 0
 set isCombinational 0
 set isDatapathOnly 0
@@ -10,7 +10,7 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set C_modelName {Block_entry60_proc3}
+set C_modelName {Block_entry688_proc3}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ i_axiu_stream_data_V_data_V int 64 regular {axi_s 0 volatile  { i_axiu_stream_data Data } }  }
@@ -65,7 +65,7 @@ set NewPortList {[
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5"],
-		"CDFG" : "Block_entry60_proc3",
+		"CDFG" : "Block_entry688_proc3",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -96,7 +96,7 @@ set RtlHierarchyInfo {[
 
 
 set ArgLastReadFirstWriteLatency {
-	Block_entry60_proc3 {
+	Block_entry688_proc3 {
 		i_axiu_stream_data_V_data_V {Type I LastRead 0 FirstWrite -1}
 		i_axiu_stream_data_V_keep_V {Type I LastRead 0 FirstWrite -1}
 		i_axiu_stream_data_V_strb_V {Type I LastRead 0 FirstWrite -1}

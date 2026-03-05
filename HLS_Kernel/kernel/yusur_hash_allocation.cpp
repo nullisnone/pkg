@@ -25,7 +25,7 @@ void yusur_hash_allocation(hls::stream<ap_uint<80> >& i_axiu_key,               
     // Define matrices (8x8 as per new format)
     uint8_t A_MATRIX[8][8];
     uint8_t B_MATRIX[8][8];
-    uint8_t C_MATRIX[8][8];
+    uint16_t C_MATRIX[8][8];
     
     // Partition matrices for parallel access
     #pragma HLS ARRAY_PARTITION variable=A_MATRIX complete dim=0
@@ -99,24 +99,29 @@ void yusur_hash_allocation(hls::stream<ap_uint<80> >& i_axiu_key,               
     }
 
     // Always perform calculation and output (regardless of validity)
-    // Matrix Multiplication: C = A * B (Element-wise for now, or true multiplication if desired)
+    // Matrix Multiplication: C = A * B
     LOOP_CALC:
     for(int i=0; i<8; i++) {
-            for(int j=0; j<8; j++) {
-                #pragma HLS PIPELINE
-                // Example: Element-wise multiplication
-                C_MATRIX[i][j] = A_MATRIX[i][j] * B_MATRIX[i][j];
+        #pragma HLS UNROLL
+        for(int j=0; j<8; j++) {
+            #pragma HLS UNROLL
+            uint16_t sum = 0;
+            for(int k=0; k<8; k++) {
+                #pragma HLS UNROLL
+                sum += A_MATRIX[i][k] * B_MATRIX[k][j];
             }
+            C_MATRIX[i][j] = sum;
         }
+    }
             
-    // Unified Output Loop: Header (1 word) + C_MATRIX (8 words) = 9 words
+    // Unified Output Loop: Header (1 word) + C_MATRIX (8 rows * 2 words/row) = 17 words
     LOOP_OUTPUT_ALL:
-    for(int i=0; i<9; i++) {
+    for(int i=0; i<17; i++) {
         #pragma HLS PIPELINE
         ap_axiu<64, 0, 0, 0> out_val;
         out_val.data = 0;
         out_val.keep = 0xFF;
-        out_val.last = (i == 8) ? 1 : 0; // Set TLAST on the 9th word (index 8)
+        out_val.last = (i == 16) ? 1 : 0; // Set TLAST on the 17th word (index 16)
 
         if (i == 0) {
             // Write Header (Prefix)
@@ -125,11 +130,20 @@ void yusur_hash_allocation(hls::stream<ap_uint<80> >& i_axiu_key,               
                 out_val.data |= ((ap_uint<64>)HEADER_INFO[k]) << (k * 8);
             }
         } else {
-            // Write C_MATRIX Row (i-1)
-            int row_idx = i - 1;
-            for(int j=0; j<8; j++) {
+            // Write C_MATRIX Row
+            // i=1..16.
+            // i=1 -> row 0, part 0
+            // i=2 -> row 0, part 1
+            int matrix_idx = i - 1;
+            int row_idx = matrix_idx / 2;
+            int part_idx = matrix_idx % 2; // 0 for lower 4 cols, 1 for upper 4 cols
+            
+            int col_offset = part_idx * 4;
+            
+            for(int j=0; j<4; j++) {
                 #pragma HLS UNROLL
-                out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][j]) << (j * 8);
+                // Each item is 16-bit. 4 items fill 64 bits.
+                out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][col_offset + j]) << (j * 16);
             }
         }
         o_axiu_user0_data.write(out_val);
