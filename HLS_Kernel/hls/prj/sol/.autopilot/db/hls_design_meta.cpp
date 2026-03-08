@@ -1,5 +1,7 @@
 #include "hls_design_meta.h"
 const Port_Property HLS_Design_Meta::port_props[]={
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst_n", 1, hls_in, -1, "", "", 1),
 	Port_Property("i_axiu_key_TDATA", 80, hls_in, 0, "axis", "in_data", 1),
 	Port_Property("i_axiu_stream_data_TDATA", 64, hls_in, 1, "axis", "in_data", 1),
 	Port_Property("i_axiu_stream_data_TKEEP", 8, hls_in, 2, "axis", "in_data", 1),
@@ -13,8 +15,6 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("o_axiu_user0_data_TKEEP", 8, hls_out, 10, "axis", "out_data", 1),
 	Port_Property("o_axiu_user0_data_TSTRB", 8, hls_out, 11, "axis", "out_data", 1),
 	Port_Property("o_axiu_user0_data_TLAST", 1, hls_out, 12, "axis", "out_data", 1),
-	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
-	Port_Property("ap_rst_n", 1, hls_in, -1, "", "", 1),
 	Port_Property("i_axiu_stream_data_TVALID", 1, hls_in, 4, "axis", "in_vld", 1),
 	Port_Property("i_axiu_stream_data_TREADY", 1, hls_out, 4, "axis", "in_acc", 1),
 	Port_Property("i_axiu_key_TVALID", 1, hls_in, 0, "axis", "in_vld", 1),

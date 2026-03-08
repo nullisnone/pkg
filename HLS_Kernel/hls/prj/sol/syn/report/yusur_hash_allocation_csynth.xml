@@ -18,7 +18,7 @@
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.541</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.354</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -36,10 +36,10 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>256</DSP>
-<FF>23578</FF>
-<LUT>32931</LUT>
-<BRAM_18K>0</BRAM_18K>
+<BRAM_18K>32</BRAM_18K>
+<DSP>512</DSP>
+<FF>139626</FF>
+<LUT>123709</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -52,6 +52,28 @@
 </AreaEstimates>
 
 <InterfaceSummary>
+<RtlPorts>
+<name>ap_clk</name>
+<Object>yusur_hash_allocation</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst_n</name>
+<Object>yusur_hash_allocation</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
 <RtlPorts>
 <name>i_axiu_key_TDATA</name>
 <Object>i_axiu_key</Object>
@@ -303,28 +325,6 @@
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>ap_clk</name>
-<Object>yusur_hash_allocation</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_rst_n</name>
-<Object>yusur_hash_allocation</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
 </RtlPorts>
 </InterfaceSummary>
 

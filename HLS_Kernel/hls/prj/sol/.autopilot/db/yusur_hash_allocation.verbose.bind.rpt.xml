@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'yusur_hash_allocation'" level="0">
-<item name = "Date">Thu Mar  5 02:08:57 2026
+<item name = "Date">Sat Mar  7 07:08:27 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.50 ns, 2.541 ns, 0.94 ns</column>
+<column name="ap_clk">3.50 ns, 2.354 ns, 0.94 ns</column>
 </table>
 </item>
 </section>
@@ -31,10 +31,10 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_Loop_LOOP_READ_AND_DRAIN_proc4_fu_68">Loop_LOOP_READ_AND_DRAIN_proc4, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_Block_while_end_proc_fu_80">Block_while_end_proc, 3, 3, 10.500 ns, 10.500 ns, 3, 3, no</column>
-<column name="grp_Loop_LOOP_OUTPUT_ALL_proc_fu_220">Loop_LOOP_OUTPUT_ALL_proc, 20, 20, 70.000 ns, 70.000 ns, 20, 20, no</column>
-<column name="call_ln0_Block_entry688_proc3_fu_297">Block_entry688_proc3, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_Loop_LOOP_READ_AND_DRAIN_proc4_fu_326">Loop_LOOP_READ_AND_DRAIN_proc4, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_Loop_LOOP_CALC_proc_fu_370">Loop_LOOP_CALC_proc, 38, 38, 0.133 us, 0.133 us, 38, 38, no</column>
+<column name="grp_Loop_LOOP_OUTPUT_ALL_proc_fu_1462">Loop_LOOP_OUTPUT_ALL_proc, 261, 261, 0.913 us, 0.913 us, 261, 261, no</column>
+<column name="call_ln0_Block_entry95065_proc3_fu_1514">Block_entry95065_proc3, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

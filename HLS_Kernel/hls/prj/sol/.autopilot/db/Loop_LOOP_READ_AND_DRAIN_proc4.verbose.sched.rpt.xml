@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Loop_LOOP_READ_AND_DRAIN_proc4'" level="0">
-<item name = "Date">Thu Mar  5 02:08:54 2026
+<item name = "Date">Sat Mar  7 07:08:16 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.50 ns, 2.371 ns, 0.94 ns</column>
+<column name="ap_clk">3.50 ns, 2.354 ns, 0.94 ns</column>
 </table>
 </item>
 </section>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- LOOP_READ_AND_DRAIN">?, ?, 1, 1, 1, ?, yes</column>
+<column name="- LOOP_READ_AND_DRAIN">?, ?, 2, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>

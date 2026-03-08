@@ -2,6 +2,4 @@
 | Launch Setup Clock          | Launch Hold Clock           | Pin                                                                                                                                                             |
 +=============================+=============================+=================================================================================================================================================================+
 | GTHE4_CHANNEL_TXOUTCLK[3]_1 | GTHE4_CHANNEL_TXOUTCLK[3]_1 | u_yusur_ndpp_fdk/u_system/yusur_dma_i/u_pcie4_uscale_plus_x1100/inst/pcie4_uscale_plus_x1100_pcie_4_0_pipe_inst/pcie_4_0_e4_inst/MIRXCOMPLETIONRAMREADDATA0[26] |
-| GTHE4_CHANNEL_TXOUTCLK[3]_1 | GTHE4_CHANNEL_TXOUTCLK[3]_1 | u_yusur_ndpp_fdk/u_system/yusur_dma_i/u_pcie4_uscale_plus_x1100/inst/pcie4_uscale_plus_x1100_pcie_4_0_pipe_inst/pcie_4_0_e4_inst/MIRXCOMPLETIONRAMREADDATA0[54] |
-| GTHE4_CHANNEL_TXOUTCLK[3]_1 | GTHE4_CHANNEL_TXOUTCLK[3]_1 | u_yusur_ndpp_fdk/u_system/yusur_dma_i/u_pcie4_uscale_plus_x1100/inst/pcie4_uscale_plus_x1100_pcie_4_0_pipe_inst/pcie_4_0_e4_inst/MIRXCOMPLETIONRAMREADDATA0[37] |
 +-----------------------------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+

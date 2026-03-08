@@ -117,11 +117,11 @@ def run_test_loop(input_file, output_file):
             print(f"ERROR: 1st matrix COL number ({cols1}) is not identical to 2nd matrix ROW number ({rows2}). Just exit with error.")
             return
 
-        if rows1 > 8 or cols1 > 8:
-            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 8x8.")
+        if rows1 > 32 or cols1 > 32:
+            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 32x32.")
             return
-        if rows2 > 8 or cols2 > 8:
-            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 8x8.")
+        if rows2 > 32 or cols2 > 32:
+            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 32x32.")
             return
 
         # Construct packet
@@ -140,12 +140,12 @@ def run_test_loop(input_file, output_file):
         packet.append(cols2)
         packet.append(255)    # Break
         
-        # Data Padding Helper
+        # Data Padding Helper (32x32)
         def append_padded_matrix(matrix, r_count, c_count):
-            for r in range(8):
+            for r in range(32):
                 if r < r_count:
                     row_data = matrix[r]
-                    for c in range(8):
+                    for c in range(32):
                         if c < c_count:
                             val = row_data[c]
                             if val > 255:
@@ -155,18 +155,22 @@ def run_test_loop(input_file, output_file):
                         else:
                             packet.append(0) # Pad column
                 else:
-                    packet.extend([0] * 8) # Pad row
+                    packet.extend([0] * 32) # Pad row
             return True
 
         if not append_padded_matrix(m1, rows1, cols1): return
         if not append_padded_matrix(m2, rows2, cols2): return
 
-        if len(packet) != 136:
-            print(f"Warning: Packet length is {len(packet)}, expected 136.")
+        if len(packet) != 2056:
+            print(f"Warning: Packet length is {len(packet)}, expected 2056.")
 
         with open(output_file, 'w') as f_out:
             # Send packet
             print(f"Sending combined matrix packet, length: {len(packet)}")
+            
+            # Start measuring latency
+            measure_start = time.perf_counter()
+            
             ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, packet, len(packet), 0)
             if ret < 0:
                 print("Failed to send packet")
@@ -178,10 +182,14 @@ def run_test_loop(input_file, output_file):
                 while time.time() - start_time < 2: # 2 second timeout per packet
                     result = ndpp_impl.yusur_ndpp_receive(rx_chn, buf, len(buf), ndpp_impl._flag_enum.NDPP_NONBLOCK)
                     if result > 0:
+                        measure_end = time.perf_counter()
+                        latency_ms = (measure_end - measure_start) * 1000
                         print(f"Received {result} bytes")
+                        print(f"FPGA Processing Latency: {latency_ms:.3f} ms")
+                        
                         data = buf[:result]
                         
-                        if len(data) >= 136:
+                        if len(data) >= 2056:
                             # 1. Print Header (8 bytes)
                             header = data[:8]
                             header_str = ",".join(str(b) for b in header)
@@ -192,13 +200,13 @@ def run_test_loop(input_file, output_file):
                             print()
                             f_out.write("\n")
                             
-                            # 3. Print Matrix (128 bytes, 8x8 uint16)
-                            matrix_bytes = data[8:136]
-                            # Unpack 64 unsigned shorts (Little Endian)
+                            # 3. Print Matrix (2048 bytes, 32x32 uint16)
+                            matrix_bytes = data[8:2056]
+                            # Unpack 1024 unsigned shorts (Little Endian)
                             try:
-                                matrix_vals = struct.unpack('<64H', matrix_bytes)
-                                for i in range(8):
-                                    row_vals = matrix_vals[i*8 : (i+1)*8]
+                                matrix_vals = struct.unpack('<1024H', matrix_bytes)
+                                for i in range(32):
+                                    row_vals = matrix_vals[i*32 : (i+1)*32]
                                     row_str = ",".join(str(val) for val in row_vals)
                                     print(row_str)
                                     f_out.write(row_str + "\n")
@@ -209,6 +217,7 @@ def run_test_loop(input_file, output_file):
                                 f_out.write(raw_str + "\n")
                         else:
                             # Fallback for unexpected length
+                            print(f"Received data length {len(data)} < 2056, raw data:")
                             raw_str = ",".join(str(b) for b in data)
                             print(raw_str)
                             f_out.write(raw_str + "\n")
