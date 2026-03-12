@@ -96,8 +96,8 @@ def run_test_loop(input_file, output_file):
 
         # Print Input File Content
         print(f"--- Input File Content ({input_file}) ---")
-        with open(input_file, 'r') as f:
-            print(f.read())
+        # with open(input_file, 'r') as f:
+        #    print(f.read())
         print("----------------------------------------")
 
         matrices = parse_matrices(input_file)
@@ -113,121 +113,154 @@ def run_test_loop(input_file, output_file):
         rows2 = len(m2)
         cols2 = len(m2[0]) if rows2 > 0 else 0
         
-        if cols1 != rows2:
-            print(f"ERROR: 1st matrix COL number ({cols1}) is not identical to 2nd matrix ROW number ({rows2}). Just exit with error.")
+        if rows1 > 128 or cols1 > 128:
+            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 128x128.")
+            return
+        if rows2 > 128 or cols2 > 128:
+            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 128x128.")
             return
 
-        if rows1 > 32 or cols1 > 32:
-            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 32x32.")
-            return
-        if rows2 > 32 or cols2 > 32:
-            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 32x32.")
-            return
+        # Helper to pack 32 rows x 128 cols (4096 items) into 4096 bytes (uint8)
+        # Each item is 1 byte. We pack 32 rows (4096 bytes) to fill the packet.
+        def get_packed_data(matrix, start_row):
+            packed = bytearray()
+            # We process 32 rows per packet to cover 128 rows in 4 packets
+            rows_to_pack = 32
+            
+            for r in range(start_row, start_row + rows_to_pack):
+                row_data = matrix[r] if r < len(matrix) else []
+                # Pad row to 128 items
+                if len(row_data) < 128:
+                    row_data.extend([0] * (128 - len(row_data)))
+                
+                # Pack 128 items into 128 bytes (uint8)
+                for c in range(128):
+                    val = row_data[c] & 0xFF
+                    packed.append(val)
+            
+            # Pad the packet to 4096 bytes if needed
+            if len(packed) < 4096:
+                packed.extend([0] * (4096 - len(packed)))
+                
+            return packed
 
-        # Construct packet
-        packet = bytearray()
-        
-        # Header (8 bytes)
-        # 1st Matrix Info
-        packet.append(1)      # ID
-        packet.append(rows1)
-        packet.append(cols1)
-        packet.append(255)    # Break
-        
-        # 2nd Matrix Info
-        packet.append(2)      # ID
-        packet.append(rows2)
-        packet.append(cols2)
-        packet.append(255)    # Break
-        
-        # Data Padding Helper (32x32)
-        def append_padded_matrix(matrix, r_count, c_count):
-            for r in range(32):
-                if r < r_count:
-                    row_data = matrix[r]
-                    for c in range(32):
-                        if c < c_count:
-                            val = row_data[c]
-                            if val > 255:
-                                print(f"ERROR: Data value {val} exceeds 255.")
-                                return False
-                            packet.append(val)
-                        else:
-                            packet.append(0) # Pad column
-                else:
-                    packet.extend([0] * 32) # Pad row
-            return True
+        # Define the 8 packets
+        # Headers adjusted to cover full 128 rows (Step 32 rows per packet)
+        # Matrix 1: Start 0, 32 (0x20), 64 (0x40), 96 (0x60)
+        # Matrix 2: Start 0, 32 (0x20), 64 (0x40), 96 (0x60)
+        headers = [
+            b'\x00\x01\x00\x00\x00\x00\x00\x00', # 0x...0100 (Row 0)
+            b'\x20\x01\x00\x00\x00\x00\x00\x00', # 0x...0120 (Row 32)
+            b'\x40\x01\x00\x00\x00\x00\x00\x00', # 0x...0140 (Row 64)
+            b'\x60\x01\x00\x00\x00\x00\x00\x00', # 0x...0160 (Row 96)
+            b'\x00\x02\x00\x00\x00\x00\x00\x00', # 0x...0200 (Row 0)
+            b'\x20\x02\x00\x00\x00\x00\x00\x00', # 0x...0220 (Row 32)
+            b'\x40\x02\x00\x00\x00\x00\x00\x00', # 0x...0240 (Row 64)
+            b'\x60\x02\x00\x00\x00\x00\x00\xff'  # 0x...0260 (Row 96) - Trigger
+        ]
 
-        if not append_padded_matrix(m1, rows1, cols1): return
-        if not append_padded_matrix(m2, rows2, cols2): return
-
-        if len(packet) != 2056:
-            print(f"Warning: Packet length is {len(packet)}, expected 2056.")
+        packets_data = []
+        
+        # Packet 1-4: Matrix A (Rows 0-127, steps of 32)
+        packets_data.append(get_packed_data(m1, 0))
+        packets_data.append(get_packed_data(m1, 32))
+        packets_data.append(get_packed_data(m1, 64))
+        packets_data.append(get_packed_data(m1, 96))
+        
+        # Packet 5-8: Matrix B (Rows 0-127, steps of 32)
+        packets_data.append(get_packed_data(m2, 0))
+        packets_data.append(get_packed_data(m2, 32))
+        packets_data.append(get_packed_data(m2, 64))
+        packets_data.append(get_packed_data(m2, 96))
 
         with open(output_file, 'w') as f_out:
-            # Send packet
-            print(f"Sending combined matrix packet, length: {len(packet)}")
-            
-            # Start measuring latency
-            measure_start = time.perf_counter()
-            
-            ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, packet, len(packet), 0)
-            if ret < 0:
-                print("Failed to send packet")
-            else:
-                # Receive packet
-                buf = bytearray(8192)
-                start_time = time.time()
-                received = False
-                while time.time() - start_time < 2: # 2 second timeout per packet
-                    result = ndpp_impl.yusur_ndpp_receive(rx_chn, buf, len(buf), ndpp_impl._flag_enum.NDPP_NONBLOCK)
-                    if result > 0:
-                        measure_end = time.perf_counter()
-                        latency_ms = (measure_end - measure_start) * 1000
-                        print(f"Received {result} bytes")
-                        print(f"FPGA Processing Latency: {latency_ms:.3f} ms")
-                        
-                        data = buf[:result]
-                        
-                        if len(data) >= 2056:
-                            # 1. Print Header (8 bytes)
-                            header = data[:8]
-                            header_str = ",".join(str(b) for b in header)
-                            print(header_str)
-                            f_out.write(header_str + "\n")
-                            
-                            # 2. Print Empty Line
-                            print()
-                            f_out.write("\n")
-                            
-                            # 3. Print Matrix (2048 bytes, 32x32 uint16)
-                            matrix_bytes = data[8:2056]
-                            # Unpack 1024 unsigned shorts (Little Endian)
-                            try:
-                                matrix_vals = struct.unpack('<1024H', matrix_bytes)
-                                for i in range(32):
-                                    row_vals = matrix_vals[i*32 : (i+1)*32]
-                                    row_str = ",".join(str(val) for val in row_vals)
-                                    print(row_str)
-                                    f_out.write(row_str + "\n")
-                            except struct.error as e:
-                                print(f"Error unpacking matrix: {e}")
-                                raw_str = ",".join(str(b) for b in data)
-                                print(raw_str)
-                                f_out.write(raw_str + "\n")
-                        else:
-                            # Fallback for unexpected length
-                            print(f"Received data length {len(data)} < 2056, raw data:")
-                            raw_str = ",".join(str(b) for b in data)
-                            print(raw_str)
-                            f_out.write(raw_str + "\n")
-
-                        received = True
-                        break
-                    time.sleep(0.0001) # Short sleep to avoid busy wait
+            # Send 8 Packets
+            for i in range(8):
+                pkt = bytearray()
+                pkt.extend(headers[i])
+                pkt.extend(packets_data[i])
                 
-                if not received:
-                    print("Timeout waiting for response")
+                if len(pkt) != 4104:
+                    print(f"Error: Packet {i+1} length is {len(pkt)}, expected 4104.")
+                    return
+                print(f"Sending batch {i+1}/8, length: {len(pkt)}...")
+                #rint(pkt.hex())
+                ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, pkt, len(pkt), 0)
+                if ret < 0:
+                    err_code, err_msg = ndpp_impl.get_current_ndpp_error_msg()
+                    print(f"Failed to send packet {i+1}. Error: {err_code}, {err_msg}")
+                    return
+                # Small delay between packets
+                #time.sleep(0.01)
+
+            # Receive packets (Expect 1 batch of 32776 bytes)
+            print("Waiting for response (Expect 1 batch of 32776 bytes)...")
+            
+            total_batches = 1
+            batch_size = 32776
+            
+            for batch_idx in range(total_batches):
+                print(f"--- Receiving Batch {batch_idx + 1}/{total_batches} ---")
+                
+                batch_data = bytearray()
+                
+                # Loop to receive full batch
+                while len(batch_data) < batch_size:
+                    # Read into a temp buffer
+                    temp_buf = bytearray(32776) 
+                    result = ndpp_impl.yusur_ndpp_receive(rx_chn, temp_buf, len(temp_buf), 0) # 0 = Blocking? Or use loop with sleep?
+                    # The original code used NONBLOCK with a loop. Let's stick to that pattern but improved.
+                    # Wait, original code: ndpp_impl.yusur_ndpp_receive(..., NDPP_NONBLOCK)
+                    
+                    if result > 0:
+                        batch_data.extend(temp_buf[:result])
+                        print(f"Received {result} bytes. Total: {len(batch_data)}/{batch_size}")
+                        #rint(temp_buf[:result].hex())
+                    else:
+                        # print("Waiting for data...")
+                        time.sleep(0.001) # Small sleep to avoid CPU spin
+                
+                print(f"Batch {batch_idx + 1} received {len(batch_data)} bytes.")
+
+                # Process the batch
+                current_batch = batch_data[:batch_size]
+                
+                # 1. Header (8 bytes)
+                header = current_batch[:8]
+                # Convert header to hex string for display
+                header_hex = "0x" + "".join(f"{b:02x}" for b in reversed(header)) # Little Endian display? Or Big?
+                # Original code just printed bytes. Let's stick to bytes or make it clearer.
+                # User said header is 0x0101...01.
+                print(f"Header: {header.hex()}") 
+                f_out.write(f"Header: {header.hex()}\n")
+                
+                # 2. Data (32768 bytes -> 128 rows * 128 cols * 2 bytes)
+                raw_data = current_batch[8:32776]
+                try:
+                    # Unpack 16384 uint16 values (Little Endian)
+                    # 128 * 128 = 16384
+                    num_vals = len(raw_data) // 2
+                    vals = struct.unpack(f'<{num_vals}H', raw_data)
+                    
+                    # 128 rows
+                    rows_per_batch = 128
+                    cols_per_row = 128
+                    
+                    for r in range(rows_per_batch):
+                        start_idx = r * cols_per_row
+                        end_idx = start_idx + cols_per_row
+                        row_vals = vals[start_idx:end_idx]
+                        
+                        # Format as comma-separated string
+                        row_str = ",".join(str(v) for v in row_vals)
+                        # print(f"Row {r}: {row_str[:50]}...") # Print preview
+                        f_out.write(row_str + "\n")
+                        
+                except Exception as e:
+                    print(f"Error unpacking batch {batch_idx + 1}: {e}")
+                    f_out.write(f"Error unpacking batch {batch_idx + 1}: {e}\n")
+                
+                f_out.write("\n") # Separator between batches
 
     except Exception as e:
         print(f"Error: {e}")

@@ -118,7 +118,7 @@ class YusurNdppImpl:
             print("create device failed")
             return None
         else:
-            print(f"[DEBUG] 设备创建成功，设备指针: {dev_ptr}")
+            # print(f"[DEBUG] 设备创建成功，设备指针: {dev_ptr}")
             return dev_ptr
 
 

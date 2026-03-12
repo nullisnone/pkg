@@ -43342,28 +43342,29 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
  ap_axiu<64, 0, 0, 0> i_rdata;
 
 
-    uint8_t A_MATRIX[32][32];
-    uint8_t B_MATRIX[32][32];
-    uint16_t C_MATRIX[32][32];
+    static ap_uint<8> A_MATRIX[128][128];
+    static ap_uint<8> B_MATRIX[128][128];
+    static uint16_t C_MATRIX[128][128];
+
+
+
 
 
 
 #pragma HLS ARRAY_PARTITION variable=A_MATRIX complete dim=2
 
-#pragma HLS ARRAY_PARTITION variable=B_MATRIX complete dim=0
+
+
+
+#pragma HLS ARRAY_PARTITION variable=B_MATRIX complete dim=2
 
 #pragma HLS ARRAY_PARTITION variable=C_MATRIX complete dim=2
 
 
- uint8_t HEADER_INFO[8];
-#pragma HLS ARRAY_PARTITION variable=HEADER_INFO complete
+ uint64_t header_val = 0;
 
 
-
-#pragma HLS DATAFLOW
-
-
- if (!i_axiu_stream_data.empty()) {
+    if (!i_axiu_stream_data.empty()) {
         i_axiu_stream_data.read();
     }
     if (!i_axiu_key.empty()) {
@@ -43371,103 +43372,147 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
     }
 
     ap_axiu<64, 0, 0, 0> in_val;
+    bool calc_trigger = false;
+
+
+
+
+
+
     int batch_counter = 0;
     bool read_done = false;
 
-
-
-    LOOP_READ_AND_DRAIN:
+    LOOP_READ_PACKET:
     while (!read_done) {
-#pragma HLS PIPELINE
- in_val = i_axiu_user0_data.read();
+#pragma HLS PIPELINE II=1
+ if (i_axiu_user0_data.empty()) {
+
+             break;
+        }
+        in_val = i_axiu_user0_data.read();
 
         if (batch_counter == 0) {
 
-            VITIS_LOOP_67_1: for (int k = 0; k < 8; k++) {
+            header_val = in_val.data;
+        } else {
+
+
+
+
+
+            if (batch_counter <= 512) {
+                int data_idx = batch_counter - 1;
+                int row_offset = 0;
+                int col_offset = 0;
+
+
+
+
+
+
+
+                bool valid_segment = false;
+                ap_uint<8> (*target_matrix)[128] = nullptr;
+                int start_row = 0;
+
+
+
+
+
+
+                uint8_t mat_id = (header_val >> 8) & 0xF;
+                uint8_t row_val = header_val & 0xFF;
+# 115 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
+                if (mat_id == 1) {
+                    target_matrix = A_MATRIX;
+                    start_row = row_val;
+                    valid_segment = true;
+                } else if (mat_id == 2) {
+                    target_matrix = B_MATRIX;
+                    start_row = row_val;
+                    valid_segment = true;
+
+
+                    if (((header_val>>56)&0xFF) == 0xFF) {
+                        calc_trigger = true;
+                    }
+                }
+
+                if (valid_segment) {
+
+
+
+
+
+                    int sub_row = data_idx / 16;
+                    int sub_col_word = data_idx % 16;
+
+                    int abs_row = start_row + sub_row;
+                    int abs_col_start = sub_col_word * 8;
+
+                    if (abs_row < 128) {
+                        VITIS_LOOP_143_1: for (int k = 0; k < 8; k++) {
 #pragma HLS UNROLL
- HEADER_INFO[k] = (in_val.data >> (k * 8)) & 0xFF;
-            }
-        } else if (batch_counter <= 128) {
-
-
-            int idx = batch_counter - 1;
-            int row = idx / 4;
-            int col_offset = (idx % 4) * 8;
-            VITIS_LOOP_77_2: for (int k = 0; k < 8; k++) {
-#pragma HLS UNROLL
- A_MATRIX[row][col_offset + k] = (in_val.data >> (k * 8)) & 0xFF;
-            }
-        } else if (batch_counter <= 256) {
-
-
-            int idx = batch_counter - 129;
-            int row = idx / 4;
-            int col_offset = (idx % 4) * 8;
-            VITIS_LOOP_87_3: for (int k = 0; k < 8; k++) {
-#pragma HLS UNROLL
- B_MATRIX[row][col_offset + k] = (in_val.data >> (k * 8)) & 0xFF;
-            }
-        }
-
-
-
-        if (in_val.last == 1) {
-
-            if (batch_counter != 256) {
-
-                VITIS_LOOP_99_4: for(int k=0; k<8; k++) {
-#pragma HLS UNROLL
- HEADER_INFO[k] = 0xFF;
+ target_matrix[abs_row][abs_col_start + k] = in_val.data(8*k+7, 8*k);
+                        }
+                    }
                 }
             }
-            read_done = true;
         }
 
+        if (in_val.last) {
+            read_done = true;
+        }
         batch_counter++;
     }
 
 
-
-
-    LOOP_CALC:
-    for(int i=0; i<32; i++) {
+    if (calc_trigger) {
+        LOOP_CALC:
+        for(int i=0; i<128; i++) {
+            VITIS_LOOP_162_2: for(int j=0; j<128; j++) {
 #pragma HLS PIPELINE II=1
- VITIS_LOOP_116_5: for(int j=0; j<32; j++) {
-#pragma HLS UNROLL
  uint32_t sum = 0;
-            VITIS_LOOP_119_6: for(int k=0; k<32; k++) {
+                VITIS_LOOP_165_3: for(int k=0; k<128; k++) {
 #pragma HLS UNROLL
- sum += A_MATRIX[i][k] * B_MATRIX[k][j];
+ sum += A_MATRIX[i][k] * B_MATRIX[j][k];
+                }
+                C_MATRIX[i][j] = (uint16_t)sum;
             }
-            C_MATRIX[i][j] = (uint16_t)sum;
         }
     }
-# 135 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
-    LOOP_OUTPUT_ALL:
-    for(int i=0; i<257; i++) {
-#pragma HLS PIPELINE
+# 181 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
+    uint64_t output_header = 0x0101010101010101;
+
+    LOOP_OUTPUT_BEATS:
+    for(int i=0; i<4097; i++) {
+#pragma HLS PIPELINE II=1
  ap_axiu<64, 0, 0, 0> out_val;
         out_val.data = 0;
         out_val.keep = 0xFF;
-        out_val.last = (i == 256) ? 1 : 0;
+        out_val.last = (i == 4096) ? 1 : 0;
 
         if (i == 0) {
 
-            VITIS_LOOP_145_7: for (int k = 0; k < 8; k++) {
-#pragma HLS UNROLL
- out_val.data |= ((ap_uint<64>)HEADER_INFO[k]) << (k * 8);
-            }
+            out_val.data = output_header;
         } else {
 
-            int idx = i - 1;
-            int row_idx = idx / 8;
-            int word_in_row = idx % 8;
-            int col_start = word_in_row * 4;
 
-            VITIS_LOOP_156_8: for(int j=0; j<4; j++) {
+            int data_idx = i - 1;
+
+
+
+
+
+
+            int abs_row = data_idx / 32;
+            int col_beat = data_idx % 32;
+
+            int abs_col_start = col_beat * 4;
+
+            VITIS_LOOP_209_4: for (int k = 0; k < 4; k++) {
 #pragma HLS UNROLL
-
- out_val.data |= ((ap_uint<64>)C_MATRIX[row_idx][col_start + j]) << (j * 16);
+ out_val.data |= ((ap_uint<64>)C_MATRIX[abs_row][abs_col_start + k]) << (k * 16);
             }
         }
         o_axiu_user0_data.write(out_val);
