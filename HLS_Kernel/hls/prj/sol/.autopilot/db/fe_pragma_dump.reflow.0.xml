@@ -1,25 +1,27 @@
 <pragmas>
-<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="245" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="185" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="210" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="163" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="166" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="68" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="144" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<1, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="179" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="204" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="158" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="161" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="63" pragmaType="pipeline" parentfunction="yusur_hash_allocation" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="139" pragmaType="unroll" parentfunction="yusur_hash_allocation" factor="-1" skip_exit_check="0"/>
 <pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="16" pragmaType="interface" parentfunction="yusur_hash_allocation" mode="axis" port="i_axiu_key" register="0" register_mode="both" name="" depth="-1"/>
 <pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="17" pragmaType="interface" parentfunction="yusur_hash_allocation" mode="axis" port="i_axiu_stream_data" register="0" register_mode="both" name="" depth="-1"/>
 <pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="18" pragmaType="interface" parentfunction="yusur_hash_allocation" mode="axis" port="i_axiu_user0_data" register="0" register_mode="both" name="" depth="-1"/>
 <pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="19" pragmaType="interface" parentfunction="yusur_hash_allocation" mode="axis" port="o_axiu_user0_data" register="0" register_mode="both" name="" depth="-1"/>
 <pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="20" pragmaType="interface" parentfunction="yusur_hash_allocation" mode="ap_ctrl_none" port="return" name=""/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="35" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8A_MATRIX"/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="40" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8B_MATRIX"/>
-<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="42" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8C_MATRIX"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="33" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8A_MATRIX"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="35" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8B_MATRIX"/>
+<pragma file="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp" line="37" pragmaType="array_partition" parentfunction="yusur_hash_allocation" dim="2" factor="0" mode="complete" dynamic="0" variable="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8C_MATRIX"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint()" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="220" pragmaType="inline" parentfunction="empty" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="245" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="empty" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<64, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1084" pragmaType="inline" parentfunction="ap_int_base<64, false>::operator()(int, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint(unsigned int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<64, false>(ap_range_ref<64, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<1, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1494" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<8, false>::mult operator*<8, false, 8, false>(ap_int_base<8, false> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
@@ -28,15 +30,13 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint(unsigned long)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint(unsigned short)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1669" pragmaType="inline" parentfunction="ap_int_base<64, false>::RType<64, false>::arg1 operator<<<64, false>(ap_int_base<64, false> const&, int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="256" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="0" pragmaType="inline" parentfunction="get_id_ptr" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<64, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint<64, false>(ap_int_base<64, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<64, false>::ssdm_int(unsigned long)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="213" pragmaType="inline" parentfunction="ap_int_base<64, false>::ap_int_base(unsigned short)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="215" pragmaType="inline" parentfunction="ap_int_base<64, false>::ap_int_base(unsigned int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="217" pragmaType="inline" parentfunction="ap_int_base<64, false>::ap_int_base(unsigned long)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi1ELb0EEC2EDq1_j" off="0" region="0" recursive="0"/>
@@ -56,7 +56,6 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<80>::ap_uint()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<80, false>::ap_int_base()" off="0" region="0" recursive="0"/>
-<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<1, false>::ssdm_int()" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint()" off="0" region="0" recursive="0"/>
@@ -64,6 +63,7 @@
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="ap_int_base<64, false>& ap_int_base<64, false>::operator|=<64, false>(ap_int_base<64, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="0" pragmaType="inline" parentfunction="get_user_ptr" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h" line="0" pragmaType="inline" parentfunction="get_dest_ptr" off="0" region="0" recursive="0"/>
+<pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
 <pragma file="/opt/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>

@@ -128,50 +128,50 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:20:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port = return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:35:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:33:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=A_MATRIX complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:40:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:35:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=B_MATRIX complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:42:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:37:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=C_MATRIX complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:68:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:63:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:144:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:139:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:163:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:158:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:166:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:161:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:185:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:179:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:210:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:204:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="yusur_hash_allocation" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:209:31" msg_body="Loop 'VITIS_LOOP_209_4' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_209_4"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:203:35" msg_body="Loop 'VITIS_LOOP_203_4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_203_4"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:165:35" msg_body="Loop 'VITIS_LOOP_165_3' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_165_3"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:160:35" msg_body="Loop 'VITIS_LOOP_160_3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_160_3"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:143:43" msg_body="Loop 'VITIS_LOOP_143_1' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_143_1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:138:43" msg_body="Loop 'VITIS_LOOP_138_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_138_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_209_4' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:209:31) in function 'yusur_hash_allocation' completely with a factor of 4">
-        <args Factor="4" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:209:31" LoopName="VITIS_LOOP_209_4"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_203_4' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:203:35) in function 'yusur_hash_allocation' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:203:35" LoopName="VITIS_LOOP_203_4"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_165_3' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:165:35) in function 'yusur_hash_allocation' completely with a factor of 128">
-        <args Factor="128" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:165:35" LoopName="VITIS_LOOP_165_3"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_160_3' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:160:35) in function 'yusur_hash_allocation' completely with a factor of 256">
+        <args Factor="256" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:160:35" LoopName="VITIS_LOOP_160_3"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_143_1' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:143:43) in function 'yusur_hash_allocation' completely with a factor of 8">
-        <args Factor="8" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:143:43" LoopName="VITIS_LOOP_143_1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:14:0" msg_body="Unrolling loop 'VITIS_LOOP_138_1' (/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:138:43) in function 'yusur_hash_allocation' completely with a factor of 8">
+        <args Factor="8" LoopLoc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:138:43" LoopName="VITIS_LOOP_138_1"/>
     </msg>
     <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp:28:0" msg_body="Applying array_partition to '_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8C_MATRIX': Complete partitioning on dimension 2.">
         <args Dim="2" Mode="Complete" UOName="_ZZ21yusur_hash_allocationRN3hls6streamI7ap_uintILi80EELi0EEERNS0_INS_4axisIS1_ILi64EELm0ELm0ELm0EEELi0EEES9_S9_E8C_MATRIX"/>

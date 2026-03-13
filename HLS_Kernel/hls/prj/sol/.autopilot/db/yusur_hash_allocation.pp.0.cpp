@@ -43342,19 +43342,14 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
  ap_axiu<64, 0, 0, 0> i_rdata;
 
 
-    static ap_uint<8> A_MATRIX[128][128];
-    static ap_uint<8> B_MATRIX[128][128];
-    static uint16_t C_MATRIX[128][128];
-
-
+    static ap_uint<8> A_MATRIX[256][256];
+    static ap_uint<8> B_MATRIX[256][256];
+    static uint32_t C_MATRIX[256][256];
 
 
 
 
 #pragma HLS ARRAY_PARTITION variable=A_MATRIX complete dim=2
-
-
-
 
 #pragma HLS ARRAY_PARTITION variable=B_MATRIX complete dim=2
 
@@ -43412,7 +43407,7 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
 
                 bool valid_segment = false;
-                ap_uint<8> (*target_matrix)[128] = nullptr;
+                ap_uint<8> (*target_matrix)[256] = nullptr;
                 int start_row = 0;
 
 
@@ -43422,7 +43417,7 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
                 uint8_t mat_id = (header_val >> 8) & 0xF;
                 uint8_t row_val = header_val & 0xFF;
-# 115 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
+# 110 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
                 if (mat_id == 1) {
                     target_matrix = A_MATRIX;
                     start_row = row_val;
@@ -43444,14 +43439,14 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
 
 
-                    int sub_row = data_idx / 16;
-                    int sub_col_word = data_idx % 16;
+                    int sub_row = data_idx / 32;
+                    int sub_col_word = data_idx % 32;
 
                     int abs_row = start_row + sub_row;
                     int abs_col_start = sub_col_word * 8;
 
-                    if (abs_row < 128) {
-                        VITIS_LOOP_143_1: for (int k = 0; k < 8; k++) {
+                    if (abs_row < 256) {
+                        VITIS_LOOP_138_1: for (int k = 0; k < 8; k++) {
 #pragma HLS UNROLL
  target_matrix[abs_row][abs_col_start + k] = in_val.data(8*k+7, 8*k);
                         }
@@ -43469,52 +43464,52 @@ __attribute__((sdx_kernel("yusur_hash_allocation", 0))) void yusur_hash_allocati
 
     if (calc_trigger) {
         LOOP_CALC:
-        for(int i=0; i<128; i++) {
-            VITIS_LOOP_162_2: for(int j=0; j<128; j++) {
+        for(int i=0; i<256; i++) {
+            VITIS_LOOP_157_2: for(int j=0; j<256; j++) {
 #pragma HLS PIPELINE II=1
  uint32_t sum = 0;
-                VITIS_LOOP_165_3: for(int k=0; k<128; k++) {
+                VITIS_LOOP_160_3: for(int k=0; k<256; k++) {
 #pragma HLS UNROLL
  sum += A_MATRIX[i][k] * B_MATRIX[j][k];
                 }
-                C_MATRIX[i][j] = (uint16_t)sum;
+                C_MATRIX[i][j] = sum;
             }
         }
-    }
-# 181 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
-    uint64_t output_header = 0x0101010101010101;
+# 175 "/root/DOWNLOAD/SWIFT/pkg-20260220/pkg/HLS_Kernel/hls/../kernel/yusur_hash_allocation.cpp"
+        uint64_t output_header = 0x0101010101010101;
 
-    LOOP_OUTPUT_BEATS:
-    for(int i=0; i<4097; i++) {
+        LOOP_OUTPUT_BEATS:
+        for(int i=0; i<32769; i++) {
 #pragma HLS PIPELINE II=1
  ap_axiu<64, 0, 0, 0> out_val;
-        out_val.data = 0;
-        out_val.keep = 0xFF;
-        out_val.last = (i == 4096) ? 1 : 0;
+            out_val.data = 0;
+            out_val.keep = 0xFF;
+            out_val.last = (i == 32768) ? 1 : 0;
 
-        if (i == 0) {
+            if (i == 0) {
 
-            out_val.data = output_header;
-        } else {
-
-
-            int data_idx = i - 1;
+                out_val.data = output_header;
+            } else {
 
 
+                int data_idx = i - 1;
 
 
 
 
-            int abs_row = data_idx / 32;
-            int col_beat = data_idx % 32;
 
-            int abs_col_start = col_beat * 4;
 
-            VITIS_LOOP_209_4: for (int k = 0; k < 4; k++) {
+                int abs_row = data_idx / 128;
+                int col_beat = data_idx % 128;
+
+                int abs_col_start = col_beat * 2;
+
+                VITIS_LOOP_203_4: for (int k = 0; k < 2; k++) {
 #pragma HLS UNROLL
- out_val.data |= ((ap_uint<64>)C_MATRIX[abs_row][abs_col_start + k]) << (k * 16);
+ out_val.data |= ((ap_uint<64>)C_MATRIX[abs_row][abs_col_start + k]) << (k * 32);
+                }
             }
+            o_axiu_user0_data.write(out_val);
         }
-        o_axiu_user0_data.write(out_val);
     }
 }

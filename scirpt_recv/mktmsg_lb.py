@@ -95,10 +95,10 @@ def run_test_loop(input_file, output_file):
             return
 
         # Print Input File Content
-        print(f"--- Input File Content ({input_file}) ---")
+        #print(f"--- Input File Content ({input_file}) ---")
         # with open(input_file, 'r') as f:
         #    print(f.read())
-        print("----------------------------------------")
+        #print("----------------------------------------")
 
         matrices = parse_matrices(input_file)
         if len(matrices) != 2:
@@ -113,114 +113,139 @@ def run_test_loop(input_file, output_file):
         rows2 = len(m2)
         cols2 = len(m2[0]) if rows2 > 0 else 0
         
-        if rows1 > 128 or cols1 > 128:
-            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 128x128.")
+        if rows1 > 256 or cols1 > 256:
+            print(f"ERROR: 1st matrix size ({rows1}x{cols1}) exceeds 256x256.")
             return
-        if rows2 > 128 or cols2 > 128:
-            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 128x128.")
+        if rows2 > 256 or cols2 > 256:
+            print(f"ERROR: 2nd matrix size ({rows2}x{cols2}) exceeds 256x256.")
             return
 
-        # Helper to pack 32 rows x 128 cols (4096 items) into 4096 bytes (uint8)
-        # Each item is 1 byte. We pack 32 rows (4096 bytes) to fill the packet.
-        def get_packed_data(matrix, start_row):
-            packed = bytearray()
-            # We process 32 rows per packet to cover 128 rows in 4 packets
-            rows_to_pack = 32
+        # Helper to get 16 rows x 256 cols (4096 items) as uint8
+        def get_chunk_data(matrix, start_row):
+            chunk = bytearray()
+            rows_to_pack = 16
+            cols_per_row = 256
             
             for r in range(start_row, start_row + rows_to_pack):
                 row_data = matrix[r] if r < len(matrix) else []
-                # Pad row to 128 items
-                if len(row_data) < 128:
-                    row_data.extend([0] * (128 - len(row_data)))
+                # Pad row to 256 items
+                if len(row_data) < cols_per_row:
+                    row_data.extend([0] * (cols_per_row - len(row_data)))
                 
-                # Pack 128 items into 128 bytes (uint8)
-                for c in range(128):
-                    val = row_data[c] & 0xFF
-                    packed.append(val)
-            
-            # Pad the packet to 4096 bytes if needed
-            if len(packed) < 4096:
-                packed.extend([0] * (4096 - len(packed)))
-                
-            return packed
-
-        # Define the 8 packets
-        # Headers adjusted to cover full 128 rows (Step 32 rows per packet)
-        # Matrix 1: Start 0, 32 (0x20), 64 (0x40), 96 (0x60)
-        # Matrix 2: Start 0, 32 (0x20), 64 (0x40), 96 (0x60)
-        headers = [
-            b'\x00\x01\x00\x00\x00\x00\x00\x00', # 0x...0100 (Row 0)
-            b'\x20\x01\x00\x00\x00\x00\x00\x00', # 0x...0120 (Row 32)
-            b'\x40\x01\x00\x00\x00\x00\x00\x00', # 0x...0140 (Row 64)
-            b'\x60\x01\x00\x00\x00\x00\x00\x00', # 0x...0160 (Row 96)
-            b'\x00\x02\x00\x00\x00\x00\x00\x00', # 0x...0200 (Row 0)
-            b'\x20\x02\x00\x00\x00\x00\x00\x00', # 0x...0220 (Row 32)
-            b'\x40\x02\x00\x00\x00\x00\x00\x00', # 0x...0240 (Row 64)
-            b'\x60\x02\x00\x00\x00\x00\x00\xff'  # 0x...0260 (Row 96) - Trigger
-        ]
-
-        packets_data = []
-        
-        # Packet 1-4: Matrix A (Rows 0-127, steps of 32)
-        packets_data.append(get_packed_data(m1, 0))
-        packets_data.append(get_packed_data(m1, 32))
-        packets_data.append(get_packed_data(m1, 64))
-        packets_data.append(get_packed_data(m1, 96))
-        
-        # Packet 5-8: Matrix B (Rows 0-127, steps of 32)
-        packets_data.append(get_packed_data(m2, 0))
-        packets_data.append(get_packed_data(m2, 32))
-        packets_data.append(get_packed_data(m2, 64))
-        packets_data.append(get_packed_data(m2, 96))
+                # Append uint8 items
+                for c in range(cols_per_row):
+                    val = row_data[c]
+                    if val > 255:
+                        # print(f"Warning: Value {val} > 255, truncating.")
+                        val = 255
+                    chunk.append(val)
+            return chunk
 
         with open(output_file, 'w') as f_out:
-            # Send 8 Packets
-            for i in range(8):
-                pkt = bytearray()
-                pkt.extend(headers[i])
-                pkt.extend(packets_data[i])
+            # Measure Total Time
+            total_start_time = time.time()
+            first_byte_received = False
+            
+            # Send 32 Packets (16 for Matrix 1, 16 for Matrix 2)
+            # Matrix 1
+            for i in range(16):
+                start_row = i * 16
+                
+                # Header: 0x000000000000{01}{row_start} (Little Endian Layout for AXI)
+                # Byte 0: Row Start (Bits 0-7)
+                # Byte 1: Matrix ID (Bits 8-15)
+                # Byte 7: Trigger (Bits 56-63)
+                header = bytearray(8)
+                header[1] = 1         # Matrix ID 1
+                header[0] = start_row # Start Row
+                
+                payload = get_chunk_data(m1, start_row)
+                
+                pkt = header + payload
+                #print(pkt.hex())
                 
                 if len(pkt) != 4104:
-                    print(f"Error: Packet {i+1} length is {len(pkt)}, expected 4104.")
+                    print(f"Error: Packet M1-{i} length {len(pkt)} != 4104")
                     return
-                print(f"Sending batch {i+1}/8, length: {len(pkt)}...")
-                #rint(pkt.hex())
+                
+                #print(f"Sending Matrix 1 Packet {i+1}/16 (Row {start_row}), len: {len(pkt)}...")
+                #if i>10 :   
                 ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, pkt, len(pkt), 0)
                 if ret < 0:
-                    err_code, err_msg = ndpp_impl.get_current_ndpp_error_msg()
-                    print(f"Failed to send packet {i+1}. Error: {err_code}, {err_msg}")
-                    return
+                        err, msg = ndpp_impl.get_current_ndpp_error_msg()
+                        print(f"Tx Failed: {err}, {msg}")
+                        #return
                 # Small delay between packets
-                #time.sleep(0.01)
+                #time.sleep(1)
 
-            # Receive packets (Expect 1 batch of 32776 bytes)
-            print("Waiting for response (Expect 1 batch of 32776 bytes)...")
+            # Matrix 2
+            for i in range(16):
+                start_row = i * 16
+                
+                # Header: 0x000000000000{02}{row_start} (Little Endian Layout)
+                header = bytearray(8)
+                header[1] = 2         # Matrix ID 2
+                header[0] = start_row # Start Row
+                
+                # Last packet of 2nd matrix (i=15) -> Set top byte (Byte 7) to 0xFF
+                if i == 15:
+                    header[7] = 0xFF
+
+                payload = get_chunk_data(m2, start_row)
+                
+                pkt = header + payload
+                
+                if len(pkt) != 4104:
+                    print(f"Error: Packet M2-{i} length {len(pkt)} != 4104")
+                    return
+
+                #print(f"Sending Matrix 2 Packet {i+1}/16 (Row {start_row}), len: {len(pkt)}...")
+                #if i==15:
+                ret = ndpp_impl.yusur_ndpp_transmit(tx_chn, pkt, len(pkt), 0)
+                if ret < 0:
+                        err, msg = ndpp_impl.get_current_ndpp_error_msg()
+                        print(f"Tx Failed: {err}, {msg}")
+                        return
+                # Small delay between packets
+                #time.sleep(0.005)
+
+            # Receive packets (Expect 1 batch of 262152 bytes)
+            #print("Waiting for response (Expect 1 batch of 262152 bytes)...")
             
             total_batches = 1
-            batch_size = 32776
+            batch_size = 262152
             
             for batch_idx in range(total_batches):
-                print(f"--- Receiving Batch {batch_idx + 1}/{total_batches} ---")
+                #print(f"--- Receiving Batch {batch_idx + 1}/{total_batches} ---")
                 
                 batch_data = bytearray()
                 
                 # Loop to receive full batch
+                start_time = time.time()
                 while len(batch_data) < batch_size:
-                    # Read into a temp buffer
-                    temp_buf = bytearray(32776) 
-                    result = ndpp_impl.yusur_ndpp_receive(rx_chn, temp_buf, len(temp_buf), 0) # 0 = Blocking? Or use loop with sleep?
-                    # The original code used NONBLOCK with a loop. Let's stick to that pattern but improved.
-                    # Wait, original code: ndpp_impl.yusur_ndpp_receive(..., NDPP_NONBLOCK)
+                    # Attempt to read the full expected size
+                    temp_buf = bytearray(batch_size) 
+                    result = ndpp_impl.yusur_ndpp_receive(rx_chn, temp_buf, len(temp_buf), 0) 
                     
                     if result > 0:
+                        if not first_byte_received:
+                            total_end_time = time.time()
+                            latency_ms = (total_end_time - total_start_time) * 1000
+                            print(f"Latency (First Tx -> First Rx): {latency_ms:.2f} ms")
+                            first_byte_received = True
+                            
                         batch_data.extend(temp_buf[:result])
-                        print(f"Received {result} bytes. Total: {len(batch_data)}/{batch_size}")
-                        #rint(temp_buf[:result].hex())
-                    else:
-                        # print("Waiting for data...")
-                        time.sleep(0.001) # Small sleep to avoid CPU spin
+                        #print(f"Received {result} bytes. Total: {len(batch_data)}/{batch_size}")
+                        if len(batch_data) >= batch_size:
+                            break
+                    #else:
+                        #time.sleep(0.001)
+                        
+                    if time.time() - start_time > 10: # 10s timeout
+                        print("Timeout waiting for data.")
+                        break
                 
-                print(f"Batch {batch_idx + 1} received {len(batch_data)} bytes.")
+                #print(f"Batch {batch_idx + 1} received {len(batch_data)} bytes.")
 
                 # Process the batch
                 current_batch = batch_data[:batch_size]
@@ -231,20 +256,20 @@ def run_test_loop(input_file, output_file):
                 header_hex = "0x" + "".join(f"{b:02x}" for b in reversed(header)) # Little Endian display? Or Big?
                 # Original code just printed bytes. Let's stick to bytes or make it clearer.
                 # User said header is 0x0101...01.
-                print(f"Header: {header.hex()}") 
-                f_out.write(f"Header: {header.hex()}\n")
+                # print(f"Header: {header.hex()}") 
+                #f_out.write(f"Header: {header.hex()}\n")
                 
                 # 2. Data (32768 bytes -> 128 rows * 128 cols * 2 bytes)
-                raw_data = current_batch[8:32776]
+                raw_data = current_batch[8:262152]
                 try:
-                    # Unpack 16384 uint16 values (Little Endian)
-                    # 128 * 128 = 16384
-                    num_vals = len(raw_data) // 2
-                    vals = struct.unpack(f'<{num_vals}H', raw_data)
+                    # Unpack 65536 uint32 values (Little Endian)
+                    # 256 * 256 = 65536
+                    num_vals = len(raw_data) // 4
+                    vals = struct.unpack(f'<{num_vals}I', raw_data)
                     
-                    # 128 rows
-                    rows_per_batch = 128
-                    cols_per_row = 128
+                    # 256 rows
+                    rows_per_batch = 256
+                    cols_per_row = 256
                     
                     for r in range(rows_per_batch):
                         start_idx = r * cols_per_row
@@ -260,7 +285,7 @@ def run_test_loop(input_file, output_file):
                     print(f"Error unpacking batch {batch_idx + 1}: {e}")
                     f_out.write(f"Error unpacking batch {batch_idx + 1}: {e}\n")
                 
-                f_out.write("\n") # Separator between batches
+                #f_out.write("\n") # Separator between batches
 
     except Exception as e:
         print(f"Error: {e}")
