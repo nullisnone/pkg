@@ -11,16 +11,7 @@ import re
 import struct
 from yusur_ndpp_impl import YusurNdppImpl
 
-REG_OFFSET_SRC_IP   = 0x0100
-REG_OFFSET_DST_IP   = 0x0104
-REG_OFFSET_SRC_PORT = 0x0108
-REG_OFFSET_DST_PORT = 0x010C
-
-mkt_recv_chn = None
-pcap_opt     = None
-recv_data    = "chn_0.pcap"
-
-cfg_file = 'mktmsg_lb_cfg.json'
+dev_name = "swiftn0"
  
 def parse_matrices(file_path):
     matrices = []
@@ -63,10 +54,6 @@ def format_output_data(data):
 def run_test_loop(input_file, output_file):
     print(f"Running test loop with input file: {input_file}, output file: {output_file}")
     
-    with open(cfg_file, 'r', encoding='UTF-8') as file:    
-        cfg_info = json.load(file)
-        dev_name = cfg_info["dev_name"]
-
     ndpp_impl = YusurNdppImpl()   
     ndpp_dev = ndpp_impl.yusur_ndpp_dev_create(dev_name)
     
@@ -93,12 +80,6 @@ def run_test_loop(input_file, output_file):
             print("Failed to create TX or RX channel")
             ndpp_impl.yusur_ndpp_dev_destroy(ndpp_dev)
             return
-
-        # Print Input File Content
-        #print(f"--- Input File Content ({input_file}) ---")
-        # with open(input_file, 'r') as f:
-        #    print(f.read())
-        #print("----------------------------------------")
 
         matrices = parse_matrices(input_file)
         if len(matrices) != 2:
@@ -160,9 +141,7 @@ def run_test_loop(input_file, output_file):
                 header[0] = start_row # Start Row
                 
                 payload = get_chunk_data(m1, start_row)
-                
                 pkt = header + payload
-                #print(pkt.hex())
                 
                 if len(pkt) != 4104:
                     print(f"Error: Packet M1-{i} length {len(pkt)} != 4104")
@@ -175,8 +154,6 @@ def run_test_loop(input_file, output_file):
                         err, msg = ndpp_impl.get_current_ndpp_error_msg()
                         print(f"Tx Failed: {err}, {msg}")
                         #return
-                # Small delay between packets
-                #time.sleep(1)
 
             # Matrix 2
             for i in range(16):
@@ -254,10 +231,6 @@ def run_test_loop(input_file, output_file):
                 header = current_batch[:8]
                 # Convert header to hex string for display
                 header_hex = "0x" + "".join(f"{b:02x}" for b in reversed(header)) # Little Endian display? Or Big?
-                # Original code just printed bytes. Let's stick to bytes or make it clearer.
-                # User said header is 0x0101...01.
-                # print(f"Header: {header.hex()}") 
-                #f_out.write(f"Header: {header.hex()}\n")
                 
                 # 2. Data (32768 bytes -> 128 rows * 128 cols * 2 bytes)
                 raw_data = current_batch[8:262152]
@@ -285,8 +258,6 @@ def run_test_loop(input_file, output_file):
                     print(f"Error unpacking batch {batch_idx + 1}: {e}")
                     f_out.write(f"Error unpacking batch {batch_idx + 1}: {e}\n")
                 
-                #f_out.write("\n") # Separator between batches
-
     except Exception as e:
         print(f"Error: {e}")
     finally:
