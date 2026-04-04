@@ -25,3 +25,5 @@
 !*.xdc
 !*.xml
 !*.csv
+!*.xci
+!*.dcp
