@@ -1,0 +1,9 @@
+该模块为user dma的almost full信号生成模块，将该模块连接到user dma的接口处，即可实现user dma的almost full信号的产生。
+
+1、user_dma_axi_st_port_rx *的信号用来链接FDK输出的接口，user_dma_almost_axi_st_port_rx *的信号用来链接user logic的用户逻辑。
+
+2、user dma的模块深度为1000，当wr cnt的计数达到1000之后，user dma的ready信号被拉低，停止接收数据。
+
+3、user dma提供了一个wr cnt的变量，该变量表示user dma内部已经存储了多少深度的数据。
+
+4、almost full模块有一个PROG FULL THR的变量，该模块是通过判断wr cnt信号是否达到了almost的阈值，当达到阈值之后，产生almost full信号，拉低输出的ready。

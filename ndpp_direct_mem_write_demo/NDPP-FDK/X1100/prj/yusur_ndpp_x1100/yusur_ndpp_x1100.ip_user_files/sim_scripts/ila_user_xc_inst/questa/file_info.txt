@@ -1,0 +1,5 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../../../../../../../home/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../yusur_ndpp_x1100.gen/sources_1/ip/ila_user_xc_inst/hdl/verilog"
+xpm_memory.sv,systemverilog,xpm,../../../../../../../../../../../home/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../yusur_ndpp_x1100.gen/sources_1/ip/ila_user_xc_inst/hdl/verilog"
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../../../home/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../yusur_ndpp_x1100.gen/sources_1/ip/ila_user_xc_inst/hdl/verilog"
+ila_user_xc_inst.v,verilog,xil_defaultlib,../../../../yusur_ndpp_x1100.gen/sources_1/ip/ila_user_xc_inst/sim/ila_user_xc_inst.v,incdir="../../../../yusur_ndpp_x1100.gen/sources_1/ip/ila_user_xc_inst/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v

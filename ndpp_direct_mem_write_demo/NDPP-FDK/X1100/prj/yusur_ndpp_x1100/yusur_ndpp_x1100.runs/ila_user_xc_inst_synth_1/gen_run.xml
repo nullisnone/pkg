@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="ila_user_xc_inst_synth_1" LaunchPart="xcku15p_CIV-ffve1517-2-e" LaunchTime="1741760914">
+  <File Type="RDS-DCP" Name="ila_user_xc_inst.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="ila_user_xc_inst_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="ila_user_xc_inst.tcl"/>
+  <File Type="RDS-UTIL" Name="ila_user_xc_inst_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="ila_user_xc_inst_reports.tcl"/>
+  <File Type="RDS-RDS" Name="ila_user_xc_inst.vds"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_user_xc_inst">
+    <File Path="$PSRCDIR/sources_1/ip/ila_user_xc_inst/ila_user_xc_inst.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="ila_user_xc_inst"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_user_xc_inst">
+    <File Path="$PSRCDIR/sources_1/ip/ila_user_xc_inst/ila_user_xc_inst.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="ila_user_xc_inst"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

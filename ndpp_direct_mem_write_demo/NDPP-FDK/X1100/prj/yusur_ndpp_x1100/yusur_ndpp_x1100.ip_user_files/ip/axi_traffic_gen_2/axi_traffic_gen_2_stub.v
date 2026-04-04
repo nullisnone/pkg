@@ -1,0 +1,38 @@
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// --------------------------------------------------------------------------------
+// Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+// Date        : Thu Mar 13 11:49:22 2025
+// Host        : HSD_164 running 64-bit CentOS Linux release 7.9.2009 (Core)
+// Command     : write_verilog -force -mode synth_stub
+//               /home/zhaomj/work/fae_zmj/wukuangqihuo_20250311/NDPP-FDK-Basic-XSeries-V1.1.0.8/NDPP-FDK/X1100/prj/yusur_ndpp_x1100/yusur_ndpp_x1100.gen/sources_1/ip/axi_traffic_gen_2/axi_traffic_gen_2_stub.v
+// Design      : axi_traffic_gen_2
+// Purpose     : Stub declaration of top-level module interface
+// Device      : xcku15p_CIV-ffve1517-2-e
+// --------------------------------------------------------------------------------
+
+// This empty module with port declaration file causes synthesis tools to infer a black box for IP.
+// The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
+// Please paste the declaration into a Verilog source file or add the file as an additional source.
+(* X_CORE_INFO = "axi_traffic_gen_v3_0_13_top,Vivado 2022.2" *)
+module axi_traffic_gen_2(s_axi_aclk, s_axi_aresetn, 
+  m_axi_lite_ch1_awaddr, m_axi_lite_ch1_awprot, m_axi_lite_ch1_awvalid, 
+  m_axi_lite_ch1_awready, m_axi_lite_ch1_wdata, m_axi_lite_ch1_wstrb, 
+  m_axi_lite_ch1_wvalid, m_axi_lite_ch1_wready, m_axi_lite_ch1_bresp, 
+  m_axi_lite_ch1_bvalid, m_axi_lite_ch1_bready, done, status)
+/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,m_axi_lite_ch1_awaddr[31:0],m_axi_lite_ch1_awprot[2:0],m_axi_lite_ch1_awvalid,m_axi_lite_ch1_awready,m_axi_lite_ch1_wdata[31:0],m_axi_lite_ch1_wstrb[3:0],m_axi_lite_ch1_wvalid,m_axi_lite_ch1_wready,m_axi_lite_ch1_bresp[1:0],m_axi_lite_ch1_bvalid,m_axi_lite_ch1_bready,done,status[31:0]" */;
+  input s_axi_aclk;
+  input s_axi_aresetn;
+  output [31:0]m_axi_lite_ch1_awaddr;
+  output [2:0]m_axi_lite_ch1_awprot;
+  output m_axi_lite_ch1_awvalid;
+  input m_axi_lite_ch1_awready;
+  output [31:0]m_axi_lite_ch1_wdata;
+  output [3:0]m_axi_lite_ch1_wstrb;
+  output m_axi_lite_ch1_wvalid;
+  input m_axi_lite_ch1_wready;
+  input [1:0]m_axi_lite_ch1_bresp;
+  input m_axi_lite_ch1_bvalid;
+  output m_axi_lite_ch1_bready;
+  output done;
+  output [31:0]status;
+endmodule
